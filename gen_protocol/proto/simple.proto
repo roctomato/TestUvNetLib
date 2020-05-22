@@ -1,0 +1,91 @@
+package lol;
+//协议号
+enum CSProtocol 
+{
+	REGISTERSVR     = 4000;//SSRegisterSvr//注册服务器
+		
+	//server间消息
+	SVR_GAME2DB_LOGIN2 = 65530;
+	SVR_DB2GAME_LOGIN2 = 65531;
+}
+
+enum ESvrType
+{
+  ESVR_NONE           = 0;
+  ESVR_GAME           = 1;//游戏
+  ESVR_CENTER         = 2;//中心
+  ESVR_GATE           = 3;//网关
+  ESVR_MAIL           = 4;//邮件
+  ESVR_DB             = 5;//DB
+  ESVR_GM			  = 6;//GM
+}
+
+message MSvrInfo
+{
+  optional ESvrType svrType = 1;
+  optional uint32 svrIndex = 2;
+  optional string strIp = 3;
+  optional uint32 svrPort = 4;
+}
+
+message SSRegisterSvr
+{
+  optional MSvrInfo svrInfo = 1;
+}
+
+message MMachineInfo
+{
+  optional uint32 os = 1;
+  optional string platform = 2;
+  optional string language = 3;
+  optional string userId = 4;
+  optional string udid = 5;  
+  optional string deviceModel = 6;
+  optional string deviceSys = 7;
+  optional uint32 deviceRam = 8;
+  optional string ip = 9;//服务器用
+}
+
+message SSLogin 
+{
+  optional string  account = 1;  //玩家账号
+  optional int32   gs_id = 2; //游戏服务器id
+  optional uint32  bReConnect = 3;//是否重新连接
+  optional uint32  netId = 4;
+  optional uint64  playerId = 5;
+  optional uint32 gateLine = 6;
+  optional uint32 channel  = 7; //包id
+  optional MMachineInfo machineInfo = 8;
+}
+
+message SaveRoleData
+{
+   optional uint64 playerId = 1;//玩家id
+   optional string account = 2; 
+   optional uint32 level = 3;
+   optional string roleName = 4;
+   optional string nickName = 5;
+   optional int64 createTime = 6;
+   optional uint32 vipLevel = 7;
+   optional uint32 vipExp = 8;  
+   optional uint32 diamond = 9;
+   optional int64 loginTime = 10;
+   optional int64 offlineTime = 11;
+   optional bytes heroBag = 12;
+   optional bytes itemBag = 13;
+   optional bytes gameCopy = 14;
+   optional bytes task = 15;
+   optional bytes gameShop = 16;
+   optional bytes groupData = 17;
+   optional uint32 gsId = 18;
+}
+
+message Db2GameLogin
+{
+  optional SaveRoleData roleData = 1;
+  optional uint32 netId = 2;
+  optional uint32 gateLine = 3;
+  optional uint32 reconnect = 4;
+  optional uint32 channel   = 5; //包id
+  optional MMachineInfo machineInfo = 6;//机器信息
+}
