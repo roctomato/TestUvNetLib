@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="TestUvNetLib" Database="" Version="10.0.0">
   <Project Name="cndbserver" Path="cndbserver/cndbserver.project" Active="Yes"/>
-  <Project Name="UvNetLib" Path="../../../me/git/UvNetLib/UvNetLib/UvNetLib.project" Active="No"/>
-  <Project Name="TestNetLib" Path="../../../me/git/UvNetLib/TestUvLib/TestNetLib.project" Active="No"/>
-  <Project Name="gateway" Path="gateway/gateway.project" Active="No"/>
+  <Project Name="UvNetLib" Path="../UvNetLib/UvNetLib/UvNetLib.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
       <Project Name="cndbserver" ConfigName="Debug"/>
-      <Project Name="UvNetLib" ConfigName="Debug"/>
-      <Project Name="TestNetLib" ConfigName="Debug"/>
       <Project Name="gateway" ConfigName="Debug"/>
+      <Project Name="UvNetLib" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
       <Project Name="cndbserver" ConfigName="Release"/>
-      <Project Name="UvNetLib" ConfigName="Release"/>
-      <Project Name="TestNetLib" ConfigName="Release"/>
       <Project Name="gateway" ConfigName="Release"/>
+      <Project Name="UvNetLib" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
