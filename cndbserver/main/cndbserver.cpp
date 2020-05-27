@@ -113,7 +113,7 @@ bool cndbserver::OnstackStart(AppNetStack* ans)
 bool cndbserver::AllowExit(AppNetStack* ans)
 {
     //此处服务器退出前询问是否可以退出
-    SYS_INFO("query  exit");
+    //SYS_INFO("query  exit");
     bool ret = false;
     do {
         if(_dbThrd.IsAnyRunning()) {
@@ -127,7 +127,7 @@ bool cndbserver::AllowExit(AppNetStack* ans)
 bool cndbserver::OnExit(AppNetStack* ans)
 {
     //此处添加退出程序时逻辑
-
+    this->_dbThrd.Join();
     SYS_INFO("server exit");
     return true;
 }
