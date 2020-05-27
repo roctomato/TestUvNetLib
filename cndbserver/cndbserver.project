@@ -2,7 +2,7 @@
 <CodeLite_Project Name="cndbserver" InternalType="Console" Version="10.0.0">
   <Plugins>
     <Plugin Name="qmake">
-      <![CDATA[00010001N0005Debug000000000000]]>
+      <![CDATA[00020001N0005Debug0000000000000001N0011linux_debug000000000000]]>
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="config">
@@ -38,26 +38,28 @@
   <Dependencies/>
   <VirtualDirectory Name="common">
     <VirtualDirectory Name="db">
-      <File Name="../../../../me/git/UvNetLib/common/db/DbThrdContext.hpp"/>
-      <File Name="../../../../me/git/UvNetLib/common/db/DbThrdContext.cpp"/>
+      <File Name="../..//UvNetLib/common/db/DbThrdContext.hpp"/>
+      <File Name="../..//UvNetLib/common/db/DbThrdContext.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="json">
-      <File Name="../../../../me/git/UvNetLib/common/json/ujson.hpp"/>
-      <File Name="../../../../me/git/UvNetLib/common/json/ujson.cpp"/>
-      <File Name="../../../../me/git/UvNetLib/common/json/u_json_node.h"/>
-      <File Name="../../../../me/git/UvNetLib/common/json/u_json_node.cpp"/>
-      <File Name="../../../../me/git/UvNetLib/common/json/double-conversion.h"/>
-      <File Name="../../../../me/git/UvNetLib/common/json/double-conversion.cc"/>
+      <File Name="../..//UvNetLib/common/json/ujson.hpp"/>
+      <File Name="../..//UvNetLib/common/json/ujson.cpp"/>
+      <File Name="../..//UvNetLib/common/json/u_json_node.h"/>
+      <File Name="../..//UvNetLib/common/json/u_json_node.cpp"/>
+      <File Name="../..//UvNetLib/common/json/double-conversion.h"/>
+      <File Name="../..//UvNetLib/common/json/double-conversion.cc"/>
     </VirtualDirectory>
     <VirtualDirectory Name="log">
-      <File Name="../../../../me/git/UvNetLib/common/log/log4cpploggerex.h"/>
-      <File Name="../../../../me/git/UvNetLib/common/log/log4cpploggerex.cpp"/>
+      <File Name="../..//UvNetLib/common/log/log4cpploggerex.h"/>
+      <File Name="../..//UvNetLib/common/log/log4cpploggerex.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="help">
-      <File Name="../../../../me/git/UvNetLib/common/help/appnetstack.h"/>
-      <File Name="../../../../me/git/UvNetLib/common/help/appnetstack.cpp"/>
+      <File Name="../..//UvNetLib/common/help/appnetstack.h"/>
+      <File Name="../..//UvNetLib/common/help/appnetstack.cpp"/>
     </VirtualDirectory>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="" C_Options="" Assembler="">
@@ -76,25 +78,25 @@
         <IncludePath Value="session"/>
         <IncludePath Value="config"/>
         <IncludePath Value="../protocol"/>
-        <IncludePath Value="D:/me/git/UvNetLib/UvNetLib/general"/>
-        <IncludePath Value="D:/me/git/UvNetLib/UvNetLib/net"/>
-        <IncludePath Value="D:/me/git/UvNetLib/UvNetLib/thread"/>
-        <IncludePath Value="D:/me/git/UvNetLib/thirdpart/libuv-1.29.1/include"/>
-        <IncludePath Value="D:/me/git/UvNetLib/thirdpart/log4cpp/include"/>
-        <IncludePath Value="D:/me/git/UvNetLib/thirdpart/protobuf-2.5.0/src"/>
-        <IncludePath Value="D:/me/git/UvNetLib/thirdpart/mysql"/>
-        <IncludePath Value="D:/me/git/UvNetLib/common/http"/>
-        <IncludePath Value="D:/me/git/UvNetLib/common/log"/>
-        <IncludePath Value="D:/me/git/UvNetLib/common/parse_p"/>
-        <IncludePath Value="D:/me/git/UvNetLib/common/help"/>
-        <IncludePath Value="D:/me/git/UvNetLib/common/json"/>
-        <IncludePath Value="D:/me/git/UvNetLib/common/db"/>
-        <IncludePath Value="D:/me/git/UvNetLib/common/"/>
+        <IncludePath Value="../../UvNetLib/UvNetLib/general"/>
+        <IncludePath Value="../../UvNetLib/UvNetLib/net"/>
+        <IncludePath Value="../../UvNetLib/UvNetLib/thread"/>
+        <IncludePath Value="../../UvNetLib/thirdpart/libuv-1.29.1/include"/>
+        <IncludePath Value="../../UvNetLib/thirdpart/log4cpp/include"/>
+        <IncludePath Value="../../UvNetLib/thirdpart/protobuf-2.5.0/src"/>
+        <IncludePath Value="../../UvNetLib/thirdpart/mysql"/>
+        <IncludePath Value="../../UvNetLib/common/http"/>
+        <IncludePath Value="../../UvNetLib/common/log"/>
+        <IncludePath Value="../../UvNetLib/common/parse_p"/>
+        <IncludePath Value="../../UvNetLib/common/help"/>
+        <IncludePath Value="../../UvNetLib/common/json"/>
+        <IncludePath Value="../../UvNetLib/common/db"/>
+        <IncludePath Value="../../UvNetLib/common/"/>
         <Preprocessor Value="_WIN32_WINNT=0x0600"/>
         <Preprocessor Value="LOG4CPP_HAVE_INT64_T"/>
       </Compiler>
       <Linker Options="" Required="yes">
-        <LibraryPath Value="D:/me/git/UvNetLib/win_lib"/>
+        <LibraryPath Value="../../UvNetLib/win_lib"/>
         <Library Value="UvNetLibD.dll"/>
         <Library Value="uv.dll"/>
         <Library Value="log4cpp"/>
@@ -175,7 +177,70 @@
         <SearchPaths/>
       </Completion>
     </Configuration>
+    <Configuration Name="linux_debug" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g;-O0;-std=c++11;-Wall;" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+        <IncludePath Value="main"/>
+        <IncludePath Value="db"/>
+        <IncludePath Value="session"/>
+        <IncludePath Value="config"/>
+        <IncludePath Value="../protocol"/>
+        <IncludePath Value="../../UvNetLib/UvNetLib/general"/>
+        <IncludePath Value="../../UvNetLib/UvNetLib/net"/>
+        <IncludePath Value="../../UvNetLib/UvNetLib/thread"/>
+        <IncludePath Value="/usr/local/mysql/include"/>
+        <IncludePath Value="../../UvNetLib/common/http"/>
+        <IncludePath Value="../../UvNetLib/common/log"/>
+        <IncludePath Value="../../UvNetLib/common/parse_p"/>
+        <IncludePath Value="../../UvNetLib/common/help"/>
+        <IncludePath Value="../../UvNetLib/common/json"/>
+        <IncludePath Value="../../UvNetLib/common/db"/>
+        <IncludePath Value="../../UvNetLib/common/"/>
+        <Preprocessor Value="LOG4CPP_HAVE_INT64_T"/>
+      </Compiler>
+      <Linker Options="" Required="yes">
+        <LibraryPath Value="../../UvNetLib/linux_lib"/>
+        <LibraryPath Value="/usr/local/mysql/lib"/>
+        <Library Value="UvNetLibD"/>
+        <Library Value="uv"/>
+        <Library Value="log4cpp"/>
+        <Library Value="protobuf"/>
+        <Library Value="mysqlclient"/>
+        <Library Value="pthread"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="../bin/$(ProjectName)/$(ProjectName)" IntermediateDirectory="../Debug/$(ProjectName)" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="../bin/$(ProjectName)/" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="Default"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
   </Settings>
-  <Dependencies Name="Debug"/>
-  <Dependencies Name="Release"/>
 </CodeLite_Project>
