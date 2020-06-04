@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TypeDef namespace="mb"  fname ="read_config">
+	<Struct name = "IpConfig" comment = "redis配置" >
+		<Member	type="string"	name="ip"	comment="地址" />
+		<Member	type="LsUInt16"	name="port"	comment="端口" />
+	</Struct>
+	<Struct name = "config" comment = "配置" >
+		<Member	type="LsInt32"	name="index"	comment="gate编号" />
+		<Member	type="string"	name="version"	comment="协议版本号" />
+		<Member	type="IpConfig"	name="local"	comment="服务器侦听的地址端口" />
+		<Member	type="IpConfig"	name="mailserver"	comment="邮件端口" />
+		<Member	type="IpConfig"	name="gameserver"	comment="游戏服务器地址" />
+		<Member	type="IpConfig"	name="centerserver"	comment="center服务器地址" />
+	</Struct>
+</TypeDef>

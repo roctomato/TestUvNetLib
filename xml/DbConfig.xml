@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TypeDef namespace="mb"  fname ="read_config">
+	<Struct name = "DbConfig" comment = "db配置" >
+		<Member	type="string"	name="host"	comment="地址" />
+		<Member	type="LsUInt16"	name="port"	comment="端口" />
+		<Member	type="string"	name="user"	comment="用户名" />
+		<Member	type="string"	name="passwd"	comment="密码" />
+		<Member	type="string"	name="db"	comment="数据库名" />
+	</Struct>
+	<Struct name = "IpConfig" comment = "redis配置" >
+		<Member	type="string"	name="ip"	comment="地址" />
+		<Member	type="LsUInt16"	name="port"	comment="端口" />
+	</Struct>
+	<Struct name = "config" comment = "配置" >
+		
+		<Member	type="IpConfig"	name="local"	comment="服务器侦听的地址端口" />
+		<Member	type="DbConfig"	name="dbcfg"	comment="数据库配置" />
+		<Member	type="LsUInt32"	name="dbthread_count"	comment="数库线程数" />
+	</Struct>
+</TypeDef>

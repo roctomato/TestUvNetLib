@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TypeDef namespace="LsSvr" fname ="ServerMsg">
+	<Enum name = "E_Svr_Msg_Module" comment = "服务器通信模块" >
+			<Member name="SVR_MSG_PROXY_MODULE"	value="1"	comment="转发消息模块"/>
+			<Member name="SVR_MSG_LOGIC_MODULE"	value="2"	comment="服务器间逻辑模块"/>
+	</Enum>
+	<Struct name = "ProxyOneString" comment = "只带1个string的消息体" >
+		<Member	type="string"	name="data"	comment="消息体" />
+	</Struct>
+	<Enum name = "Svr_Logic_Msg" comment = "服务器间逻辑消息" >
+			<Member name="Svr_Logic_Gate_Register"	value="1"	comment="gate向game\center注册自己的kingdom"/>
+			<Member name="Svr_Logic_Role_Login"	value="101"	comment="gate通知game有玩家进入游戏世界"/>
+			<Member name="Svr_Logic_Role_Logout"	value="102"	comment="gate通知game有玩家离开游戏世界"/>
+			<Member name="Svr_Logic_Online_Count"	value="103"	comment="gate通知game游戏世界在线玩家数量"/>
+			<Member name="Svr_Logic_Kick_Role"	value="104"	comment="game向gate发送踢人消息"/>
+			<Member name="Svr_Logic_GameRestart"	value="105"	comment="game向gate重启消息"/>
+			<Member name="Svr_SWITCH_Role"	value="106"	comment="game向gate发送切换角色消息"/>
+			
+			<Member name="Svr_Logic_Init_Role_Mail"	value="200"	comment="game初始系统邮件"/>
+			<Member name="Svr_Logic_Init_Role_Mail_Response"	value="201"	comment="game初始系统邮件"/>
+			<Member name="Svr_Logic_Save_Mail"	value="202"	comment="game保存邮件"/>
+			<Member name="Svr_Logic_reCreate_role"	value="203"	comment="gate向center申请某一个账号重新生成原始玩家数据"/>
+			<Member name="Svr_Logic_get_reward"	value="204"	comment="center向game通知玩家需要领取邮件附件里的奖励"/>			
+			<Member name="Svr_Logic_Exxcute_Sql"	value="205"	comment="game向center执行sql"/>
+			<Member name="Svr_Logic_get_many_reward"	value="206"	comment="center向game通知玩家需要领取多个邮件附件里的奖励"/>
+	</Enum>
+	<Enum name = "Svr_Proxy_Msg" comment = "转发消息" >
+			<Member name="Svr_Proxy_Client_Game"	value="1"	comment="gate转发客户端消息到game"/>
+			<Member name="Svr_Proxy_Game_Client"	value="2"	comment="game通过gate发消息到客户端"/>
+			<Member name="Svr_Proxy_Group_Msg"	    value="3"	comment="群发消息"/>
+			<Member name="Svr_Proxy_Client_Center"	value="4"	comment="gate转发客户端消息到center"/>
+			<Member name="Svr_Proxy_Center_Client"	value="5"	comment="center"/>
+	</Enum>
+	<Set name ="SetRoleID" type="LsUInt32" comment="cmment"/>
+	<Struct name = "Proxy_Many_Client" comment = "发1条消息到多客户端" >
+		<Member	type="SetRoleID"	name="setRole"	comment="要发送的角色ID" />
+		<Member	type="LsInt32"	name="except"	comment="不要发送的角色ID" />
+		<Member	type="string"	name="data"	comment="发送的数据" />
+	</Struct>
+</TypeDef>

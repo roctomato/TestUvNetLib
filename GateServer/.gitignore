@@ -1,0 +1,8 @@
+/Debug
+/bin
+/.build-debug
+/.codelite
+/compile_commands.json
+/Makefile
+*.txt
+*mk
