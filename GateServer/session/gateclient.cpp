@@ -44,8 +44,10 @@ GateClient::GateClient()
 }
 
 int GateClient::OnConnect(const char* pszIP_, LsUInt16 port_, LsUInt32 handleID_)
-{
+{  
+    _cid = handleID_;
     SYS_INFO("GATE CONNECT  %s:%d  cid %d", pszIP_, port_, _cid);
+ 
     _connectTime = GateApp::Instance()->_svrTime.tv_sec;
     return 0;
 }
@@ -75,7 +77,7 @@ bool GateClient::OnRecieve(NormalBuff& buff)
         SYS_ERR("PARSE err %d ", this->_handleID);
         this->Disconnect();
     }else{
-        this->HandleZbyMsg(*parse.header, (LsUInt8*)parse.pBuf, parse.bufLen);
+        this->HandleZbyMsg(parse.head, (LsUInt8*)parse.pBuf, parse.bufLen);
     }
     
     return true;
@@ -258,10 +260,12 @@ bool GateClient::SendZbyMsgEx(LsUInt16 msg,
     if(bufLen_ > 0) {
         sq.AddBuff(pBuf_, bufLen_, true);
     }
+    LsUInt8 tail =0;
+    sq.AddBuff(&tail, sizeof tail, true);
 
     PacketHeader header;
     header.PushTo(sq, msg, flag, module);
-    if(SEND_FLAG_FLUSH & sendflag) {
+    if(SEND_FLAG_CLOSE & sendflag) {
         this->SetCloseFlag();
     }
 
@@ -337,6 +341,8 @@ bool GateClientMgr::SendZbyMsgEx(int id,
     if(pGc) {
         pGc->SendZbyMsgEx(msg, pBuf_, bufLen_, sendflag, flag, module);
         ret = true;
+    }else{
+        NET_ERR("no client id %d", id);
     }
     return ret;
 }

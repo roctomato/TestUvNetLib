@@ -165,12 +165,14 @@ bool GtQueueRedis::HandleMsgQueue(redisAsyncContext* c, AsyncRedis* redis, CHire
             CInArchive arch(msg.c_str(), msg.size());
             Ls::RedisEvent event;
             arch >> event;
-            REDIS_INFO("recv boardcast src:%s evt:%s", event.src.c_str(), event.event.c_str());
+            REDIS_INFO("recv QUEUE src:%s evt:%s", event.src.c_str(), event.event.c_str());
 
             if(p->_evtHandler)
                 p->_evtHandler->HandleallSvr(event);
             else
                 REDIS_ERROR("no handler");
+             p->GetMessage();   
+            
         } catch(ArInExc& e) {
             REDIS_ERROR("%x %s", p, e.what());
             DumpMem((LsUInt8*)(&msg[0]), msg.size());
@@ -229,7 +231,7 @@ void GtQueueRedis::GetMessage()
     char cmd[128];
     sprintf(cmd, "blpop %s 0", this->_msgServer.c_str());
 
-    ExecRepeatCallback(GtQueueRedis::HandleMsgQueue, NULL, cmd);
+    Exec(GtQueueRedis::HandleMsgQueue, NULL, cmd);
     REDIS_INFO("msg queue %s", cmd);
 }
 
