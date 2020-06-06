@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="GateServer" InternalType="Console" Version="10.0.0">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00020001N0005Debug0000000000000001N0011linux_debug000000000000]]>
+    </Plugin>
+  </Plugins>
   <VirtualDirectory Name="struct">
     <File Name="../struct/ServerMsg.h"/>
     <File Name="../struct/ServerMsg.cpp"/>
@@ -8,11 +13,6 @@
     <File Name="../struct/LsLogicDb.h"/>
     <File Name="../struct/LsLogicDb.cpp"/>
   </VirtualDirectory>
-  <Plugins>
-    <Plugin Name="qmake">
-      <![CDATA[00020001N0005Debug0000000000000001N0011linux_debug000000000000]]>
-    </Plugin>
-  </Plugins>
   <VirtualDirectory Name="config">
     <File Name="config/ConfigInfo.cpp"/>
     <File Name="config/ConfigInfo.hpp"/>
@@ -208,7 +208,9 @@
         <IncludePath Value="db"/>
         <IncludePath Value="session"/>
         <IncludePath Value="config"/>
+        <IncludePath Value="../struct"/>
         <IncludePath Value="../protocol"/>
+        <IncludePath Value="../common"/>
         <IncludePath Value="../../UvNetLib/UvNetLib/general"/>
         <IncludePath Value="../../UvNetLib/UvNetLib/net"/>
         <IncludePath Value="../../UvNetLib/UvNetLib/thread"/>
@@ -219,7 +221,9 @@
         <IncludePath Value="../../UvNetLib/common/help"/>
         <IncludePath Value="../../UvNetLib/common/json"/>
         <IncludePath Value="../../UvNetLib/common/db"/>
+        <IncludePath Value="../../UvNetLib/common/redis"/>
         <IncludePath Value="../../UvNetLib/common/"/>
+        <IncludePath Value="../../UvNetLib/thirdpart/hiredis/Include"/>
         <Preprocessor Value="LOG4CPP_HAVE_INT64_T"/>
       </Compiler>
       <Linker Options="" Required="yes">
@@ -231,6 +235,7 @@
         <Library Value="protobuf"/>
         <Library Value="mysqlclient"/>
         <Library Value="pthread"/>
+        <Library Value="hiredis"/>
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="../bin/$(ProjectName)/$(ProjectName)" IntermediateDirectory="../Debug/$(ProjectName)" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="../bin/$(ProjectName)/" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
