@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TypeDef namespace="Ls" fname ="RedisEvent">
+	<Struct name = "RedisEvent" comment = "通过redis通信的消息体" >
+		<Member	type="string"	name="src"	comment="发送者的消息侦听队列" />
+		<Member	type="string"	name="event"	comment="事件名称" />
+		<Member	type="string"	name="data"	comment="消息体" />
+	</Struct>
+	<Struct name = "GateOnline" comment = "gate上线" >
+		<Member	type="LsInt32"	name="kingdom"	comment="所属王国" />
+		<Member	type="LsInt32"	name="index"	comment="gate服务器序号" />
+		<Member	type="string"	name="ip"	comment="公网地址" />
+		<Member	type="LsUInt16"	name="port"	comment="公网端口" />
+	</Struct>
+</TypeDef>

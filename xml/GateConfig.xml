@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TypeDef namespace="zby"  fname ="read_config">
+	<Struct name = "RedisCfg" comment = "redis配置" >
+		<Member	type="string"	name="ip"	comment="地址" />
+		<Member	type="LsUInt16"	name="port"	comment="端口" />
+		<Member	type="LsUInt16"	name="index"	comment="数据库索引" />
+		<Member	type="string"	name="password"	comment="密码" />
+	</Struct>
+	<Struct name = "IpConfig" comment = "redis配置" >
+		<Member	type="string"	name="ip"	comment="地址" />
+		<Member	type="LsUInt16"	name="port"	comment="端口" />
+	</Struct>
+	<Struct name = "config" comment = "配置" >
+		<Member	type="LsInt16"	name="maxConnectTime"	comment="客户端最多连接时长" />
+		<Member	type="LsUInt16"	name="waringCount"	comment="警戒人数" />
+		<Member	type="LsUInt16"	name="maxClient"	comment="支撑客户端数" />
+		<Member	type="RedisCfg"	name="redisInfo"	comment="redis配置" />
+		<Member	type="LsUInt32"	name="kingdom"	comment="王国ID" />
+		<Member	type="LsUInt16"	name="index"	comment="gate序号" />
+		<Member	type="IpConfig"	name="local"	comment="服务器侦听的地址端口" />
+		<Member	type="IpConfig"	name="publicIP"	comment="公网地址端口" />
+		<Member	type="IpConfig"	name="gameserver"	comment="游戏服务器地址" />
+		<Member	type="IpConfig"	name="centerserver"	comment="center服务器地址" />
+	</Struct>
+</TypeDef>

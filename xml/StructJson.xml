@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TypeDef namespace="Ls">
+	<Struct name = "DB_CNNT_INFO" comment = "连接数据的相关配置" >
+		<Member	type="string"	name="dbName"	comment="数据库名" />
+		<Member	type="string"	name="dbIP"	comment="数据库地址" />
+		<Member	type="string"	name="userName"	comment="账号" />
+		<Member	type="string"	name="password"	comment="密码" />
+		<Member	type="LsUInt16"	name="port"	comment="端口" />
+	</Struct>
+	<Struct name = "RedisCfg" comment = "redis配置" >
+		<Member	type="string"	name="ip"	comment="redis地址" />
+		<Member	type="LsUInt16"	name="port"	comment="端口" />
+		<Member	type="LsInt32"	name="index"	comment="数据库位置" />
+	</Struct>
+</TypeDef>

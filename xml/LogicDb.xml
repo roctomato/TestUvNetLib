@@ -1,0 +1,1761 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TypeDef namespace="Ls" fname ="LsLogicDb">
+	<Vector name ="VecUInt32" type="LsUInt32" comment="cmment"/>
+	<Set name ="SetUInt16" type="LsUInt16" comment="cmment"/>
+	<Vector name ="VecString" type="string" comment="cmment"/>
+	<Struct name = "LoginTesting" comment = "登录验证" >
+		<Member	type="string"	name="result"	comment="结果" />
+	</Struct>
+	<Struct name = "role_base_info" comment = "角色基本信息" >
+		<Member	type="LsUInt32"	name="roleid"	comment="角色ID" />
+		<Member	type="LsUInt32"	name="accout"	comment="账号ID" />
+		<Member	type="string"	name="name"	comment="角色名称" />
+		<Member	type="LsUInt32"	name="kingdom"	comment="所在王国ID" />
+		<Member	type="LsInt16"	name="icon_id"	comment="头像icon ID" />
+		<Member	type="string"	name="open_id"	comment="平台提供的账号名称" />
+		<Member	type="string"	name="platform"	comment="平台名称" />
+		<Member	type="string"	name="session_key"	comment="session key" />
+		<Member	type="string"	name="nation"	comment="国家" />
+		<Member	type="VecUInt32"	name="allrole"	comment="账号所有角色ID" />
+	</Struct>
+	<Struct name = "LilithClientInfo" comment = "日志头信息" >
+		<Member	type="string"	name="version"	comment="数据版本号,目前版本号为1" />
+		<Member	type="string"	name="game_id"	comment="一款游戏对应的唯一ID，由莉莉丝提供" />
+		<Member	type="string"	name="pack_name"	comment="在某个平台上架的唯一游戏包名" />
+		<Member	type="string"	name="channel_id"	comment="平台提供的账号名称" />
+		<Member	type="string"	name="idfa"	comment="Ios设备广告标示符，IOS客户端必填" />
+		<Member	type="string"	name="android_id"	comment="" />
+		<Member	type="string"	name="google_aid"	comment="" />
+		<Member	type="string"	name="os_type"	comment="" />
+		<Member	type="string"	name="os_version"	comment="" />
+		<Member	type="string"	name="app_version"	comment="" />
+		<Member	type="string"	name="device_mode"	comment="" />
+		<Member	type="string"	name="open_id"	comment="平台提供的账号名称" />
+		<Member	type="string"	name="app_id"	comment="平台提供的账号名称" />
+		<Member	type="string"	name="name"	comment="玩家名" />
+		<Member	type="string"	name="platform"	comment="运营平台" />
+		<Member	type="LsUInt32"	name="bindFlag"	comment="绑定账户标记 1- facebook 2 - game center" />
+		<Member	type="LsUInt32"	name="language"	comment="客户端使用的语言" />
+		<Member	type="string"	name="uid"	comment="用户ID" />
+		<Member	type="string"	name="sdkv"	comment="SKD版本号" />
+		<Member	type="string"	name="carrier"	comment="运营商" />
+		<Member	type="string"	name="mac_wifi"	comment="Mac_Wifi" />
+		<Member	type="string"	name="mac_3g"	comment="Mac_3g" />
+		<Member	type="string"	name="net_status"	comment="Net_Status" />
+		<Member	type="string"	name="ua"	comment="机型" />
+		<Member	type="string"	name="cid"	comment="渠道ID" />
+		<Member	type="string"	name="deviceid"	comment="设备ID" />
+		<Member	type="string"	name="extend"	comment="扩展用" />
+	</Struct>
+	<Struct name = "role_asset_info" comment = "玩家财产信息" >
+		<Member	type="LsInt32"	name="gold"	comment="金币" />
+		<Member	type="LsUInt8"	name="vip_level"	comment="vip等级" />
+		<Member	type="LsUInt32"	name="vip_exp"	comment="vip经验" />
+		<Member	type="LsUInt32"	name="vip_time_remaining"	comment="vip激活状态的剩余时间" />
+		<Member	type="LsUInt8"	name="privilege_level"	comment="特权等级" />
+		<Member	type="LsUInt32"	name="privilege_exp"	comment="特权经验" />
+	</Struct>
+	<Struct name = "role_strength_info" comment = "玩家实力信息" >
+		<Member	type="LsInt64"	name="player_power"	comment="玩家战力" />
+		<Member	type="LsInt64"	name="army_power"	comment="部队战力" />
+		<Member	type="LsInt64"	name="build_power"	comment="建筑战力" />
+		<Member	type="LsInt64"	name="tech_power"	comment="科研战力" />
+		<Member	type="LsInt64"	name="hero_power"	comment="英雄战力" />
+		<Member	type="LsInt16"	name="player_level"	comment="玩家等级" />
+		<Member	type="LsInt64"	name="magic_power"	comment="法术卡牌实力" />
+		<Member	type="LsInt64"	name="equip_power"	comment="装备实力" />
+	</Struct>
+	<Struct name = "role_hero_job_info" comment = "玩家英雄职位信息" >
+		<Member	type="LsInt32"	name="id"	comment="玩家英雄职位ID(1-10)" />
+		<Member	type="LsUInt8"	name="lock"	comment="是否解锁(0锁定，1解锁)" />
+	</Struct>
+	<Vector name ="VecSRoleHeroJobInfo" type="role_hero_job_info" comment="玩家英雄职位信息VEC"/>
+	<Struct name = "role_all_info" comment = "玩家基本信息" >
+		<Member	type="LsUInt32"	name="roleid"	comment="玩家ID" />
+		<Member	type="LsUInt32"	name="accout"	comment="账号ID" />
+		<Member	type="string"	name="name"	comment="玩家名称" />
+		<Member	type="LsInt16"	name="icon_id"	comment="头像icon ID" />
+		<Member	type="LsUInt32"	name="kingdom"	comment="所在王国ID" />
+		<Member	type="LsUInt32"	name="kingdom_title"	comment="王国头衔，由国王玩家授予，默认0无头衔" />
+		<Member	type="string"	name="signature"	comment="玩家自定义签名" />
+		<Member	type="LsInt16"	name="newName"	comment="是否改过名字(0,没有，1改过)" />
+		<Member	type="LsInt16"	name="role_type"  comment="角色类型 0-普通玩家 1-机器人" />
+		<Member	type="LsInt32"	name="version"	comment="当前存储的版本" />
+		<Member	type="string"	name="open_id"	comment="玩家OpenID" />
+		<Member	type="string"	name="nation"	comment="国家" />
+		<Member	type="LsInt32"	name="icon_endtime"	comment="玩家头像结束时间" />
+		<Member	type="LsInt32"	name="log_upload" comment="是否上传(0否1是)" />
+		<Member	type="LsInt32"	name="log_level"  comment="日志级别" />
+	</Struct>
+	<Struct name = "role_game_info" comment = "玩家游戏信息" >
+		<Member	type="LsInt32"	name="newbieTaskStatus"	comment="新手任务步骤" />
+		<Member	type="LsInt32"	name="storyStatus"	comment="新手剧情步骤" />
+		<Member	type="LsUInt32"	name="cur_city"	comment="当前城市ID" />
+		<Member	type="LsInt32"	name="interior"	comment="内政制度" />
+		<Member	type="LsInt32"	name="military"	comment="军事制度" />
+		<Member	type="SetUInt16"	name="first_list"	comment="第一次行为逻辑已触发列表" />
+		<Member	type="LsInt32"	name="create_time"	comment="生成玩家数据的时间" />
+		<Member	type="LsInt32"	name="last_login_time"	comment="最后登录时间" />
+		<Member	type="LsInt32"	name="last_logout_time"	comment="最后登出时间" />
+		<Member	type="LsInt32"	name="first_login_time"	comment="今天第一次登录时间" />
+		<Member	type="LsInt32"	name="continue_login_days"	comment="持续登录天数" />
+		<Member	type="LsInt32"	name="sysMailIndex"	comment="系统邮件领取到的下标数" />
+		<Member	type="LsInt16"	name="newHero"	comment="新英雄通知事件" />
+		<Member	type="SetUInt16"	name="award_list"	comment="后台奖励列表" />
+		<Member	type="SetUInt16"	name="trigger_list"	comment="触发引导列表" />
+		<Member	type="SetUInt16"	name="client_action"	comment="玩家发送行为列表" />
+		<Member	type="LsInt32"	name="sign_index"  comment="签到索引" />
+		<Member	type="LsInt32"	name="sign_today"  comment="是否可签到(0否1是)" />
+		<Member	type="LsInt32"	name="csign_index" comment="累计签到索引" />
+		<Member	type="LsInt32"	name="csign_num"   comment="累计签到次数" />
+		<Member	type="LsInt32"	name="left_find"   comment="剩余查询次数" />
+		<Member	type="LsInt32"	name="last_find_time"	comment="上次查询时间" />
+		<Member	type="LsInt32"	name="tribe_attack_times"	comment="蛮族进攻次数" />
+		<Member	type="LsInt32"	name="forbit_chat"	comment="是否禁言 0-否 1-是" />
+		<Vector type ="VecUInt32" name="first_pay_list" comment="首充金币礼包ID列表"/>
+	</Struct>
+	<Struct name = "user_account" comment = "登录账号表" >
+		<Member	type="LsInt32"	name="id"	comment="" />
+		<Member	type="string"	name="name"	comment="账号名" />
+		<Member	type="string"	name="password"	comment="" />
+		<Member	type="string"	name="mobile_id"	comment="硬件ID" />
+		<Member	type="LsUInt32"	name="login"	comment="登录次数" />
+		<Member	type="string"	name="platform"	comment="用户来源的平台" />
+		<Member	type="string"	name="reg_ip"	comment="注册IP" />
+		<Member	type="LsInt32"	name="reg_time"	comment="注册时间" />
+		<Member	type="string"	name="last_login_ip"	comment="最后登录IP" />
+		<Member	type="LsInt32"	name="last_login_time"	comment="最后登录时间" />
+		<Member	type="LsInt16"	name="status"	comment="账号状态 0 -正常 1-封号" />
+		<Member	type="LsUInt32"	name="role_id"	comment="角色id" />
+	</Struct>
+	<Struct name = "SCityMagicBuffInfo" comment = "法术Buff信息" >
+		<Member	type="LsUInt32"	name="magic_buff_id"	comment="buff的ID" />
+		<Member	type="LsUInt32"	name="magic_id"	comment="法术ID" />
+		<Member	type="LsInt32"	name="magic_buff_effect"	comment="buff的效果0正常1减半" />
+		<Member	type="LsInt32"	name="magic_start_time"	comment="buff开始时间" />
+		<Member	type="LsInt32"	name="magic_end_time"	comment="buff结束时间" />
+		<Member	type="LsUInt32"	name="from_castle_id"	comment="施法城堡ID" />
+		<Member	type="LsInt32"	name="magic_from_x"	comment="施法方城堡x坐标" />
+		<Member	type="LsInt32"	name="magic_from_y"	comment="施法方城堡y坐标" />
+		<Member	type="LsUInt32"	name="target_castle_id"	comment="被施法城堡ID" />
+		<Member	type="LsInt32"	name="magic_targert_x"	comment="被施法方城堡x坐标" />
+		<Member	type="LsInt32"	name="magic_targert_y"	comment="被施法方城堡y坐标" />
+	</Struct>
+	<Struct name = "SPerpareCardInfo" comment = "准备卡牌信息" >
+		<Member	type="LsUInt32"	name="card_id"	comment="卡牌ID" />
+		<Member	type="LsUInt32"	name="card_state"	comment="卡牌状态(0准备中 1就绪)" />
+	</Struct>
+	<Vector name ="VecSPerpareCardInfo" type="SPerpareCardInfo" comment="准备卡牌列表"/>
+	<Struct name = "SResourceDetailInfo" comment = "资源详细信息" >
+		<Member	type="LsInt64"	name="res_current_value"	comment="当前资源量" />
+		<Member	type="LsInt32"	name="res_hour_output"	comment="每小时恢复base" />
+		<Member	type="LsInt32"	name="res_hour_output_total"	comment="每小时恢复total" />
+		<Member	type="float"	name="res_second_output"	comment="每秒产量" />
+		<Member	type="LsInt64"	name="res_store_max"	comment="最大资源量" />
+		<Member	type="LsInt64"	name="res_store_max_total"	comment="最大资源量total" />
+		<Member	type="LsInt64"	name="res_store_protect"	comment="保护资源量" />
+		<Member	type="LsInt64"	name="res_store_protect_total"	comment="保护资源量total" />
+		<Member	type="LsUInt32"	name="lastUpdatetime"	comment="上次更新资源现有量时戳" />
+		<Member	type="LsInt32"	name="res_state"	comment="" />
+		<Member	type="LsInt32"	name="attr_type"	comment="" />
+	</Struct>
+	<Struct name = "role_hero_info" comment = "玩家英雄职位相关信息" >
+		<Member	type="SResourceDetailInfo"	name="hero_power"	comment="玩家英雄能量" />
+		<Member	type="VecSRoleHeroJobInfo"	name="hero_hero_job_vec"	comment="玩家英雄职位信息VEC" />
+	</Struct>
+	<Struct name = "SFoodIncreaseInfo" comment = "粮食资源信息" >
+		<Member	type="SResourceDetailInfo"	name="base_res"	comment="基本资源信息" />
+		<Member	type="LsInt32"	name="keep_cost"	comment="消耗的粮食基本维护费" />
+		<Member	type="LsInt32"	name="keep_cost_total"	comment="消耗的粮食总维护费" />
+	</Struct>
+	<Struct name = "SCityMagicInfo" comment = "城市法术信息" >
+		<Member	type="VecSPerpareCardInfo"	name="pre_card_list"	comment="准备卡牌列表" />
+		<Member	type="SCityMagicBuffInfo"	name="buff_info"	comment="法术buff信息(自己)" />
+		<Member	type="SResourceDetailInfo"	name="res_mana"	comment="法力值信息" />
+		<Member	type="LsInt32"	name="magic_level"	comment="施法等级" />
+		<Member	type="LsInt32"	name="pre_end_time"	comment="准备卡牌结束时间" />
+	</Struct>
+	<Struct name = "SPopulationIncreaseInfo" comment = "城市人口信息" >
+		<Member	type="SResourceDetailInfo"	name="base_res"	comment="基本信息" />
+		<Member	type="LsInt32"	name="end_time"	comment="人口恢复加速结束时间" />
+	</Struct>
+	<Struct name = "SMapObjBase" comment = "大地图地格信息" >
+		<Member	type="LsUInt8"	name="mapObjType"	comment="地格类型" />
+		<Member	type="LsInt32"	name="gridX"	comment="横坐标" />
+		<Member	type="LsInt32"	name="gridY"	comment="纵坐标" />
+		<Member	type="LsUInt32"	name="kingdom"	comment="当前所处的王国id" />
+	</Struct>
+	<Struct name = "SCityBuildingInfo" comment = "城市建筑信息" >
+		<Member	type="LsUInt32"	name="tile_id"	comment="所在地格" />
+		<Member	type="LsUInt32"	name="type_id"	comment="建筑类型" />
+		<Member	type="LsUInt32"	name="building_id"	comment="建筑id（包含等级）" />
+		<Member	type="LsUInt32"	name="building_state"	comment="建筑状态" />
+		<Member	type="LsUInt32"	name="function_id"	comment="功能ID" />
+		<Member	type="LsUInt32"	name="league_help"	comment="是否申请过联盟帮助" />
+	</Struct>
+	<Vector name ="VecSCityBuildingInfo" type="SCityBuildingInfo" comment=""/>
+	<Struct name = "CityBuildInfo" comment = "建造队列信息" >
+		<Member	type="LsInt32"	name="op_type"	comment="建造类型" />
+		<Member	type="LsUInt32"	name="build_tile"	comment="建筑ID或者tileID" />
+		<Member	type="LsUInt32"	name="startTime"	comment="状态起始时间" />
+		<Member	type="LsUInt32"	name="endTime"	comment="状态结束时间" />
+	</Struct>
+	<Vector name ="VecCityBuildInfo" type="CityBuildInfo" comment=""/>
+	<Struct name = "DbCityBuildInfo" comment = "建造信息" >
+		<Member	type="VecSCityBuildingInfo"	name="vecBuilding"	comment="建筑信息" />
+		<Member	type="VecCityBuildInfo"	name="buildQueue"	comment="建造队列" />
+	</Struct>
+	<Struct name = "SCityLockInfo" comment = "地格信息" >
+		<Member	type="LsUInt32"	name="tile_id"	comment="所在地格" />
+		<Member	type="LsUInt32"	name="tile_state"	comment="地格状态" />
+		<Member	type="LsUInt32"	name="tile_index"	comment="第几个解锁的地格" />
+	</Struct>
+	<Vector name ="VecSCityLockInfo" type="SCityLockInfo" comment=""/>
+	<Struct name = "CityUnlockInfo" comment = "解锁队列信息" >
+		<Member	type="LsInt32"	name="op_type"	comment="建造类型" />
+		<Member	type="LsUInt32"	name="build_tile"	comment="地格ID" />
+		<Member	type="LsUInt32"	name="tile_index"	comment="第几个解锁的地格" />
+		<Member	type="LsUInt32"	name="startTime"	comment="状态起始时间" />
+		<Member	type="LsUInt32"	name="endTime"	comment="状态结束时间" />
+	</Struct>
+	<Struct name = "DbCityLockInfo" comment = "地格信息" >
+		<Member	type="VecSCityLockInfo"	name="vecLock"	comment="建筑信息" />
+		<Member	type="CityUnlockInfo"	name="lockQueue"	comment="建造队列" />
+	</Struct>
+	<Struct name = "SCityBuildTile" comment = "城堡建筑解锁地格信息" >
+		<Member	type="DbCityBuildInfo"	name="building"	comment="建筑" />
+		<Member	type="DbCityLockInfo"	name="tile"	comment="地格" />
+	</Struct>
+	<Struct name = "SColorInfo" comment = "颜色信息" >
+		<Member	type="LsInt32"	name="color_type"	comment="颜色类型(0为自定义类型)" />
+		<Member	type="LsInt32"	name="color_r"	comment="RGB的R值" />
+		<Member	type="LsInt32"	name="color_g"	comment="RGB的G值" />
+		<Member	type="LsInt32"	name="color_b"	comment="RGB的B值" />
+	</Struct>
+	<Struct name = "SUnionFlagInfo" comment = "联盟旗帜" >
+		<Member	type="LsInt32"	name="flag_form"	comment="旗帜形状" />
+		<Member	type="LsInt32"	name="flag_pattern"	comment="旗帜样式" />
+		<Member	type="SColorInfo"	name="flag_bf_color1"	comment="旗帜背景颜色1" />
+		<Member	type="SColorInfo"	name="flag_bf_color2"	comment="旗帜背景颜色2" />
+		<Member	type="LsInt32"	name="flag_icon"	comment="旗帜纹章" />
+		<Member	type="SColorInfo"	name="flag_icon_color"	comment="旗帜纹章颜色" />
+		<Member	type="LsInt32"	name="flag_effect"	comment="旗帜特效" />
+	</Struct>
+	<Struct name = "SApplyJoinInfo" comment = "联盟申请人信息" >
+		<Member	type="LsUInt32"	name="apply_roleid"	comment="申请人id" />
+		<Member	type="LsInt32"	name="apply_time"	comment="apply_time" />
+	</Struct>
+	<Struct name = "SUnionHelpInfo" comment = "联盟帮助信息" >
+		<Member	type="LsInt64"	name="help_id"	comment="联盟帮助ID" />
+		<Member	type="LsInt32"	name="city_id"	comment="申请帮助的城池ID" />
+		<Member	type="LsInt32"	name="help_type"	comment="帮助类型（训练、治疗、建造、科研）" />
+		<Member	type="LsInt32"	name="pox_index"	comment="地格ID" />
+		<Member	type="LsInt32"	name="config_id"	comment="对象ID" />
+		<Member	type="LsInt32"	name="player_id"	comment="请求帮助的玩家id" />
+		<Member	type="string"	name="player_name"	comment="请求帮助的玩家id" />
+		<Member	type="LsInt32"	name="rank_level"	comment="角色的军阶名称" />
+		<Member	type="LsInt32"	name="help_times"	comment="已帮助次数" />
+		<Member	type="LsInt32"	name="help_times_max"	comment="最大帮助次数" />
+		<Member	type="string"	name="hero_name"	comment="英雄名字" />
+		<Member	type="LsInt32"	name="hero_level"	comment="英雄等级" />
+		<Member	type="LsInt32"	name="hero_face"	comment="英雄头像" />
+	</Struct>
+	<Struct name = "SUnionRankInfo" comment = "联盟军阶信息" >
+		<Member	type="LsInt32"	name="rank_level"	comment="军阶等级" />
+		<Member	type="string"	name="rank_name"	comment="军阶名称" />
+		<Member	type="LsInt32"	name="is_default"	comment="是否为默认名称(0否1是)" />
+	</Struct>
+	<Vector name ="VecSUnionRankList" type="SUnionRankInfo" comment="军阶列表"/>
+	<Struct name = "union_data" comment = "联盟数据" >
+		<Member	type="LsUInt32"	name="id"	comment="联盟ID" />
+		<Member	type="LsUInt32"	name="kingdom"	comment="联盟所属国王ID" />
+		<Member	type="string"	name="union_name"	comment="联盟名字" />
+		<Member	type="string"	name="union_tag"	comment="联盟标签" />
+		<Member	type="string"	name="union_title"	comment="滚动字幕" />
+		<Member	type="string"	name="union_des"	comment="联盟描述" />
+		<Member	type="LsUInt32"	name="union_create_time"	comment="联盟创建时间" />
+		<Member	type="LsInt32"	name="union_level"	comment="联盟等级" />
+		<Member	type="LsInt32"	name="auto_accept"	comment="自动招募开关" />
+		<Member	type="LsInt32"	name="union_power"	comment="联盟实力" />
+		<Member	type="LsInt64"	name="union_leader"	comment="联盟盟主player id" />
+		<Member	type="LsInt32"	name="language"	comment="联盟语言" />
+		<Member	type="SUnionFlagInfo"	name="union_flag_info"	comment="联盟旗帜" />
+		<Member	type="LsInt32"	name="union_army_color"	comment="联盟部队颜色" />
+		<Member	type="VecSUnionRankList"	name="union_rank_list"	comment="军阶列表" />
+		<Member	type="LsInt64"	name="city_power"	comment="联盟城市实力" />
+		<Member	type="LsInt64"	name="army_power"	comment="联盟卫队实力" />
+		<Member	type="LsInt64"	name="army_count"	comment="联盟卫队数量" />
+		<Member	type="LsInt32"	name="defence_time"	  comment="联盟城堡被攻击时间" />
+		<Member	type="LsInt32"	name="defence_result" comment="联盟城堡被攻击结果" />
+		<Member	type="LsInt32"	name="join_level"	comment="加入联盟的等级限制" />
+		<Member	type="LsInt32"	name="join_power"	comment="加入联盟的实力限制" />
+	</Struct>
+	<Struct name = "union_build" comment = "联盟建筑数据" >
+		<Member	type="LsUInt32"	name="lb_type"	comment="建筑类型" />
+		<Member	type="LsUInt32"	name="lb_level"	comment="建筑等级" />
+	</Struct>
+	<Vector name ="VecUnion_build" type="union_build" comment=""/>
+	<Struct name = "SUnion_Castle" comment = "联盟城堡" >
+		<Member	type="LsUInt32"	name="uc_state"	comment="联盟城堡状态" />
+		<Member	type="LsInt32"	name="gridX"	comment="横坐标" />
+		<Member	type="LsInt32"	name="gridY"	comment="纵坐标" />
+		<Member	type="VecUnion_build"	name="vec_build"	comment="建筑等级" />
+		<Member	type="LsUInt32"	name="exile_time"	comment="上次流亡的时间点" />
+	</Struct>
+	<Struct name = "SUnion_Assert" comment = "联盟资产" >
+		<Member	type="LsInt64"	name="u_money"	comment="联盟资金" />
+		<Member	type="LsInt64"	name="indenture"	comment="联盟契约" />
+		<Member	type="LsInt64"	name="manuscript"	comment="联盟手稿" />
+		<Member	type="LsInt32"	name="gift_level"	comment="联盟礼物等级" />
+		<Member	type="LsInt64"	name="gift_point"	comment="联盟礼物点" />
+		<Member	type="VecUInt32" name="zone_list"	comment="联盟占区域信息" />
+	</Struct>
+	<Struct name = "SDonationData" comment = "联盟捐献数据-计算价格参数" >
+		<Member	type="LsInt64"	name="donate_food"	comment="捐献粮食" />
+		<Member	type="LsInt64"	name="donate_wood"	comment="捐献木材" />
+		<Member	type="LsInt64"	name="donate_stone"	comment="捐献石料" />
+		<Member	type="LsInt64"	name="donate_iron"	comment="捐献铁矿" />
+		<Member	type="LsInt64"	name="donate_gold"	comment="捐献金币" />
+		<Member	type="float"	name="food_pice"	comment="粮食价格" />
+		<Member	type="float"	name="wood_pice"	comment="木材价格" />
+		<Member	type="float"	name="stone_pice"	comment="石料价格" />
+		<Member	type="float"	name="iron_pice"	comment="铁矿价格" />
+		<Member	type="float"	name="food_pice_trend"	comment="粮食价格预算" />
+		<Member	type="float"	name="wood_pice_trend"	comment="木材价格预算" />
+		<Member	type="float"	name="stone_pice_trend"	comment="石料价格预算" />
+		<Member	type="float"	name="iron_pice_trend"	comment="铁矿价格预算" />
+		<Member	type="LsInt32"	name="trend_count"	comment="预算次数" />
+		<Member	type="LsInt32"	name="fresh_time"	comment="价格刷新时间" />
+	</Struct>
+	<Struct name = "SDonateResource" comment = "捐献资源数据" >
+		<Member	type="LsInt64"	name="donate_food"	comment="粮食" />
+		<Member	type="LsInt64"	name="donate_wood"	comment="木材" />
+		<Member	type="LsInt64"	name="donate_stone"	comment="石料" />
+		<Member	type="LsInt64"	name="donate_iron"	comment="铁矿" />
+		<Member	type="LsInt64"	name="donate_silver"	comment="银币" />
+		<Member	type="LsInt64"	name="donate_indenture"	comment="契约" />
+		<Member	type="LsInt64"	name="donate_manuscript"	comment="手稿" />
+		<Member	type="LsInt64"	name="donate_spice"	comment="香料" />
+	</Struct>
+	<Struct name = "SDailyDonation" comment = "每日捐献限制" >
+		<Member	type="LsInt64"	name="union_money"	comment="资金" />
+		<Member	type="LsInt64"	name="union_silver"	comment="联盟银币" />
+		<Member	type="LsInt64"	name="union_indenture"	comment="联盟契约" />
+		<Member	type="LsInt64"	name="union_manuscript"	comment="联盟手稿" />
+		<Member	type="LsInt64"	name="union_spice"	comment="联盟香料" />
+	</Struct>
+	<Struct name = "SUnionDonationInfo" comment = "联盟捐献数据" >
+		<Member	type="SDailyDonation"	name="daily_donate"	comment="每日捐献" />
+		<Member	type="SDonateResource"	name="out_info"	comment="城外资源" />
+		<Member	type="SDonationData"	name="price_res"	comment="计算价格参数的资源" />
+	</Struct>
+	<Struct name = "SUnionMemberInfo" comment = "联盟成员信息" >
+		<Member	type="LsUInt32"	name="union_id"	comment="联盟ID" />
+		<Member	type="LsUInt64"	name="member_id"	comment="成员ID" />
+		<Member	type="LsInt32"	name="rank_level"	comment="军阶等级" />
+		<Member	type="LsInt32"	name="union_exploit"	comment="联盟功勋" />
+		<Member	type="LsInt32"	name="union_contribute"	comment="联盟贡献" />
+		<Member	type="LsInt32"	name="day_contribute"	comment="今日贡献" />
+		<Member	type="LsInt32"	name="week_contribute"	comment="本周贡献" />
+		<Member	type="LsInt32"	name="week_max_con"	comment="本周贡献最大值" />
+		<Member	type="LsInt32"	name="help_con"	comment="本周帮助贡献" />
+		<Member	type="LsInt32"	name="day_time_help"	comment="今日时间进度帮助贡献" />
+		<Member	type="LsInt32"	name="day_card_help"	comment="今日卡牌帮助贡献" />
+		<Member	type="LsInt32"	name="task_con"	comment="本周任务贡献" />
+		<Member	type="LsInt32"	name="item_con"	comment="本周捐献道具贡献" />
+		<Member	type="LsInt32"	name="gold_con"	comment="本周捐献金币贡献" />
+		<Member	type="LsInt32"	name="res_con"	comment="本周捐献资源贡献" />
+		<Member	type="LsInt32"	name="donate_gold"	comment="捐献金币" />
+		<Member	type="SDonateResource"	name="donate_res"	comment="捐献的资源" />
+		<Member	type="LsInt16"	name="first_join"	comment="第一次加入联盟" />
+		<Member	type="VecUInt32" name="invited_list"	comment="被邀请联盟列表" />
+	</Struct>
+	<Struct name = "SLeagueInfo" comment = "联盟信息" >
+		<Member	type="union_data"	name="league_info"	comment="联盟基本信息" />
+		<Member	type="VecUInt32"	name="member_list"	comment="成员列表" />
+		<Member	type="VecUInt32"	name="block_list"	comment="屏蔽联盟列表" />
+		<Member	type="VecUInt32"    name="invit_list"	comment="联盟邀请列表" />
+	</Struct>
+	<Struct name = "SUnionTech" comment = "联盟科技" >
+		<Member	type="LsInt32"	name="tech_id"	comment="联盟科技ID" />
+		<Member	type="LsInt32"	name="type"	comment="科技类型" />
+		<Member	type="LsInt32"	name="level"	comment="科技等级" />
+		<Member	type="LsInt32"	name="tech_point"	comment="联盟科技点" />
+		<Member	type="LsInt32"	name="tech_status"	comment="科技状态(0等级不足1可捐献2可升级3已满级)" />
+	</Struct>
+	<Vector name ="VecSUnionTech" type="SUnionTech" comment="联盟科技列表"/>
+	<Struct name = "SSystemTech" comment = "系统目标科技" >
+		<Member	type="LsInt32"	name="tech_id"	comment="科技ID" />
+		<Member	type="LsInt32"	name="reward_id"	comment="奖励ID" />
+	</Struct>
+	<Vector name ="VecSSystemTech" type="SSystemTech" comment="联盟系统科技"/>
+	<Struct name = "SUnionTechInfo" comment = "联盟科技数据" >
+		<Member	type="VecSUnionTech"	name="tech_list"	comment="联盟科技列表" />
+		<Member	type="VecSSystemTech"	name="sys_tech"	comment="联盟系统科技" />
+		<Member	type="VecUInt32"	name="donate_tech"	comment="可捐献科技" />
+		<Member	type="LsUInt32"	name="target_tech"	comment="联盟目标科技" />
+		<Member	type="LsUInt32"	name="fresh_num"	comment="刷新系统科技次数" />
+		<Member	type="LsUInt32"	name="set_num"	comment="设置联盟科技次数" />
+	</Struct>
+	<Struct name = "SArmyInfo" comment = "兵种信息" >
+		<Member	type="LsUInt32"	name="armys_id"	comment="兵种id" />
+		<Member	type="LsInt64"	name="armys_quantity"	comment="兵种数量" />
+		<Member	type="LsInt64"	name="normal"	comment="在城内的正常兵种数量" />
+		<Member	type="LsInt64"	name="out"	comment="在外兵种数量" />
+		<Member	type="LsInt64"	name="hurt"	comment="伤兵数量" />
+		<Member	type="LsInt64"	name="treat"	comment="治疗数量" />
+	</Struct>
+	<Vector name ="VecSArmyInfo" type="SArmyInfo" comment="兵种列表"/>
+	<Struct name = "SArmyBulid" comment = "兵种建造序列" >
+		<Member	type="LsUInt32"	name="armys_id"	comment="兵种id" />
+		<Member	type="LsInt64"	name="armys_quantity"	comment="兵种数量" />
+		<Member	type="LsUInt32"	name="startTime"	comment="状态起始时间" />
+		<Member	type="LsUInt32"	name="endTime"	comment="状态结束时间" />
+		<Member	type="LsUInt32"	name="build_tile"	comment="兵营的tileID" />
+	</Struct>
+	<Struct name = "SCityArmyInfo" comment = "城市兵种信息" >
+		<Member	type="VecSArmyInfo"	name="army"	comment="兵种" />
+		<Member	type="SArmyBulid"	name="armyBulid"	comment="建造序列" />
+		<Member	type="LsInt64"	name="maxScale"	comment="训练规模" />
+		<Member	type="LsInt64"	name="maxCapacity"	comment="容量" />
+		<Member	type="LsInt64"	name="maxTribe"	comment="蛮族容量" />
+	</Struct>
+	<Struct name = "SCityTrainLimitInfo" comment = "城市训练规模限制" >
+		<Member	type="LsInt64"	name="troops_single_max"	comment="部队训练规模" />
+		<Member	type="LsInt64"	name="troops_assembled_max"	comment="陷阱训练规模" />
+	</Struct>
+	<Struct name = "SMarchResInfo" comment = "行军资源信息" >
+		<Member	type="LsUInt32"	name="res_id"	comment="资源id（包括道具）" />
+		<Member	type="LsInt64"	name="res_quantity"	comment="资源数量" />
+	</Struct>
+	<Struct name = "SMarchTroopsInfo" comment = "行军兵种信息" >
+		<Member	type="LsUInt32"	name="player_id"	comment="玩家id，集结时需要区分出各玩家的部队数" />
+		<Member	type="LsUInt32"	name="armys_id"	comment="兵种id" />
+		<Member	type="LsInt64"	name="armys_quantity"	comment="该玩家该兵种数量" />
+		<Member	type="LsInt64"	name="armys_hurt"	comment="该玩家该兵种伤兵" />
+		<Member	type="LsInt64"	name="armys_dead"	comment="该玩家该兵种死亡" />
+	</Struct>
+	<Struct name = "SMarchTroopsReport" comment = "行军兵种信息(战报用)" >
+		<Member	type="LsUInt32"	name="a"	comment="玩家id，集结时需要区分出各玩家的部队数" />
+		<Member	type="LsUInt32"	name="b"	comment="兵种id" />
+		<Member	type="LsInt64"	name="c"	comment="该玩家该兵种数量" />
+		<Member	type="LsInt64"	name="d"	comment="该玩家该兵种伤兵" />
+		<Member	type="LsInt64"	name="e"	comment="该玩家该兵种死亡" />
+	</Struct>
+	<Vector name ="VecSMarchTroopsReport" type="SMarchTroopsReport" comment="cmment"/>
+	<Struct name = "SMarchSpeed" comment = "行军速度" >
+		<Member	type="float"	name="speed"	comment="速度" />
+		<Member	type="LsUInt32"	name="time"	comment="时间" />
+	</Struct>
+	<Vector name ="VecSMarchSpeed" type="SMarchSpeed" comment="cmment"/>
+	<Vector name ="VecSMarchResInfo" type="SMarchResInfo" comment="cmment"/>
+	<Vector name ="VecSMarchTroopsInfo" type="SMarchTroopsInfo" comment="cmment"/>
+	<Struct name = "SDropResult" comment = "掉落结果" >
+		<Member	type="string"	name="ItemType"	comment="掉落类型  见drop_libcsv" />
+		<Member	type="LsUInt32"	name="Item"	comment="掉落ID" />
+		<Member	type="LsInt32"	name="Count"	comment="数量" />
+	</Struct>
+	<Vector name ="VecSDropResult" type="SDropResult" comment="cmment"/>
+	<Struct name = "SMapObj" comment = "地图上物体信息" >
+		<Member	type="LsUInt32"	name="objType"	comment="类型" />
+		<Member	type="LsUInt32"	name="objID"	comment="" />
+	</Struct>
+	<Struct name = "SMarchRelicInfo" comment = "行军圣物信息" >
+		<Member	type="LsUInt32"	name="id"	comment="实例ID" />
+		<Member	type="LsUInt32"	name="template_id"	comment="模版ID" />
+		<Member	type="LsInt32"	name="level"	comment="等级" />
+		<Member	type="LsInt32"	name="end_time"	comment="腐朽时间" />
+	</Struct>
+	<Vector name ="VecSMarchRelicInfo" type="SMarchRelicInfo" comment="行军圣物信息列表"/>	
+	<Struct name = "SCityMarchProgress" comment = " 行军进度相关（文档：军事/行军）" >
+		<Member	type="LsUInt32"	name="march_id"	comment="行军id" />
+		<Member	type="LsUInt32"	name="march_type"	comment="" />
+		<Member	type="LsUInt32"	name="player_id"	comment="所属玩家id" />
+		<Member	type="LsUInt32"	name="city_id"	comment="所属城市" />
+		<Member	type="LsUInt32"	name="union_id"	comment="所属联盟" />
+		<Member	type="LsUInt32"	name="loc_start_k"	comment="出发点K坐标" />
+		<Member	type="LsUInt32"	name="loc_start_x"	comment="出发点X坐标" />
+		<Member	type="LsUInt32"	name="loc_start_y"	comment="出发点Y坐标" />
+		<Member	type="LsUInt32"	name="loc_end_k"	comment="目标点K坐标" />
+		<Member	type="LsUInt32"	name="loc_end_x"	comment="目标点X坐标" />
+		<Member	type="LsUInt32"	name="loc_end_y"	comment="目标点y坐标" />
+		<Member	type="LsUInt32"	name="startTime"	comment="状态起始时间" />
+		<Member	type="LsUInt32"	name="endTime"	comment="状态结束时间" />
+		<Member	type="LsUInt32"	name="initEndTime"	comment="队列生成时候的到达结束点" />
+		<Member	type="LsUInt32"	name="hero_id"	comment="英雄id" />
+		<Member	type="LsUInt32"	name="target_id"	comment="行军目标ID" />
+		<Member	type="LsUInt32"	name="_massID"	comment="集结ID" />
+		<Member	type="VecSMarchTroopsInfo"	name="stru_troops"	comment="携带部队" />
+		<Member	type="VecSMarchSpeed"	name="speed"	comment="行军速度" />
+		<Member	type="VecSDropResult"	name="drop_res"	comment="掉落物品(攻击)" />
+		<Member	type="VecSDropResult"	name="loss_res"	comment="损失物品(防御)" />
+		<Member	type="SMapObj"	name="targetObj"	comment="行军目标类型ID" />
+		<Member	type="LsUInt32"	name="_totalWeight"	comment="采集负重" />
+		<Member	type="LsInt32"	name="_resType"	comment="当前采集类型" />
+		<Member	type="LsInt32"	name="_realWeight"	comment="采集负重" />
+		<Member	type="float"	name="_resSpeed"	comment="采集速度" />
+		<Member	type="float"	name="_speed"	comment="移动速度" />
+		<Member	type="LsUInt32"	 name="carry_point"	comment="采集圣物点" />
+		<Member	type="VecSMarchRelicInfo" name="drop_relic"	comment="携带圣物" />
+		<Member	type="LsUInt32" name="captive_hero"	comment="俘获英雄" />
+		<Member	type="LsInt32"  name="march_state"	comment="行军状态(0正常1结束)" />
+	</Struct>
+	<Vector name = "VecSCityMarchProgress" type="SCityMarchProgress" comment = " 行军进度相关（文档：军事/行军）" />
+	<Struct name = "SMassInfo" comment = "集结信息" >
+		<Member	type="LsUInt32"	name="mass_id"	comment="集结id" />
+		<Member	type="LsUInt32"	name="role_id"	comment="发起者id" />
+		<Member	type="LsInt32"	name="gridX"	comment="目标点X坐标" />
+		<Member	type="LsInt32"	name="gridY"	comment="目标点y坐标" />
+		<Member	type="LsInt32"	name="total_time"	comment="等待时间" />
+		<Member	type="LsInt32"	name="end_time"	comment="等待截止时间" />
+		<Member	type="LsUInt32"	name="mass_state"	comment="集结状态" />
+		<Member	type="LsUInt32"	name="arrivedMarch"	comment="到达集结点行军数量" />
+		<Member	type="SCityMarchProgress"	name="firstMarch"	comment="发起者行军信息" />
+	</Struct>
+	<Struct name = "SRoleCityInfo" comment = "角色城池信息" >
+		<Member	type="LsUInt32"	name="city_id"	comment="城市id" />
+		<Member	type="LsUInt32"	name="inner_id"	comment="城市索引 1 第一个城市 " />
+		<Member	type="string"	name="city_name"	comment="城市名字（支持多语言？）" />
+		<Member	type="LsUInt8"	name="city_state"	comment="城市状态：正常、流亡、挂起、重建" />
+		<Member	type="LsInt16"	name="city_level_arrived"	comment="城市到达过的最大等级" />
+		<Member	type="LsInt16"	name="city_level_now"	comment="城市当前等级" />
+		<Member	type="LsUInt32"	name="city_icon"	comment="城市icon" />
+		<Member	type="LsInt32"	name="city_union_help_max_time"	comment="该城市请求联盟帮助的次数上限" />
+		<Member	type="LsInt32"	name="city_trade_num"	comment="城市运输数量" />
+		<Member	type="LsInt32"	name="city_trade_tax"	comment="城市运输税率" />
+		<Member	type="LsUInt64"	name="roleID"	comment="所属角色ID" />
+		<Member	type="LsInt16"	name="x"	comment="目标的X坐标" />
+		<Member	type="LsInt16"	name="y"	comment="目标的Y坐标" />
+		<Member	type="LsInt32"	name="last_defence"	comment="上一次被攻击时间" />
+		<Member	type="LsInt32"	name="result"	comment="上一次被攻击胜负0负1胜" />
+		<Member	type="LsInt32"	name="captive_max_num"	comment="英雄最大囚禁数" />
+		<Member	type="LsInt32"	name="last_march"	comment="上一次被攻击行军类型" />
+		<Member	type="LsInt32"	name="practice_army" comment="操练士兵奖励(0未领取1已领取)" />
+	</Struct>
+	<Struct name = "FightBuff" comment = "战斗属性buff数据结构" >
+		<Member	type="LsInt16"	name="b"	comment="buffID" />
+		<Member	type="LsInt32"	name="v"	comment="数值" />
+	</Struct>
+	<Vector name ="VecFightBuff" type="FightBuff" comment="战斗属性buff信息列表"/>
+	<Struct name = "SFightInfo" comment = "战斗信息" >
+		<Member	type="LsUInt32"	name="target_kingid"	comment="发生战斗的王国ID" />
+		<Member	type="LsInt16"	name="target_pox_x"	comment="战斗发生的地点" />
+		<Member	type="LsInt16"	name="target_pox_y"	comment="战斗发生的地点" />
+		<Member	type="LsInt32"	name="battletype"	comment="战斗类型1和3是城堡战斗类型，2是部队战斗类型" />
+		<Member	type="LsUInt32"	name="winner_id"	comment="胜利者信息" />
+	</Struct>
+	<Struct name = "PlayerInfo" comment = "参与集结者玩家信息" >
+		<Member	type="LsInt32"	name="id"	comment="玩家id" />
+		<Member	type="string"	name="name"	comment="玩家姓名" />
+		<Member	type="VecSDropResult"	name="get_material"	comment="材料信息" />
+	</Struct>
+	<Vector name ="VecPlayerInfo" type="PlayerInfo" comment="参与集结者玩家信息列表"/>
+	<Struct name = "SCaptiveReport" comment = "战俘信息" >
+		<Member	type="LsUInt32"	name="hero_id"      comment="被俘英雄ID" />
+		<Member	type="LsInt32"	name="hero_icon"    comment="被俘英雄头像" />
+		<Member	type="string"	name="hero_name"    comment="被俘英雄名字" />
+	</Struct>
+	<Struct name = "SFightMarchInfo" comment = "参与战斗者的信息" >
+		<Member	type="LsUInt32"	name="user_id"	comment="参与者ID" />
+		<Member	type="LsInt16"	name="icon_id"	comment="参与者头像ID" />
+		<Member	type="LsInt16"	name="isMass"	comment="是否是集结部队(0不是，1是)" />
+		<Member	type="VecPlayerInfo"	name="member_list"	comment="参与集结成员列表" />
+		<Member	type="LsUInt32"	name="league_id"	comment="参与者联盟ID" />
+		<Member	type="string"	name="leagueTag"	comment="参与者联盟标记" />
+		<Member	type="string"	name="user_name"	comment="参与者姓名" />
+		<Member	type="string"	name="castle_name"	comment="来源城市的名称" />
+		<Member	type="LsInt16"	name="from_k"	comment="王国ID" />
+		<Member	type="LsInt16"	name="from_x"	comment="行军出发点" />
+		<Member	type="LsInt16"	name="from_y"	comment="行军出发点" />
+		<Member	type="VecSMarchTroopsReport"	name="before_attack"	comment="战前部队" />
+		<Member	type="VecSMarchTroopsReport"	name="after_attack"	comment="战后部队" />
+		<Member	type="LsUInt32"	name="troopsTotal"	comment="参战军队总数" />
+		<Member	type="LsUInt32"	name="armyDead"	comment="部队战死" />
+		<Member	type="LsUInt32"	name="armyWounded"	comment="部队受伤" />
+		<Member	type="LsUInt32"	name="armyAlive"	comment="部队存活" />
+		<Member	type="LsUInt32"	name="trapDel"	comment="陷阱损毁（毁灭+受损）" />
+		<Member	type="string"	name="hero_name"	comment="参与的英雄姓名" />
+		<Member	type="LsInt32"	name="hero_exp"	comment="参与英雄获得的经验" />
+		<Member	type="LsInt64"	name="tribeLost"	comment="蛮族兵种战损" />
+		<Member	type="LsInt32"	name="Rpeople"	comment="奖励人口" />
+		<Member	type="LsInt32"	name="Lpeople"	comment="战损人口" />
+		<Member	type="LsInt32"	name="culture"	comment="奖励文化" />
+		<Member	type="LsInt32"	name="power"	comment="战损实力" />
+		<Member	type="LsInt32"	name="boom"	comment="战损繁荣度" />
+		<Member	type="VecSDropResult"	name="get_material"	comment="材料信息" />
+		<Member	type="VecSMarchRelicInfo" name="get_relic"	comment="携带圣物信息" />
+		<Member	type="VecFightBuff"	name="herobufflist"	comment="英雄buff信息" />
+		<Member	type="VecFightBuff"	name="fightbufflist"	comment="战斗buff信息" />
+		<Member	type="VecUInt32"	name="magiclist"	comment="城堡所带的法术信息" />
+		<Member	type="SCaptiveReport" name="captive_hero"	comment="被俘英雄信息" />
+	</Struct>
+	<Struct name = "SFightReport" comment = "战报" >
+		<Member	type="SFightInfo"	name="info"	comment="战斗信息" />
+		<Member	type="SFightMarchInfo"	name="attack"	comment="进攻者信息" />
+		<Member	type="SFightMarchInfo"	name="defnece"	comment="防守者信息" />
+	</Struct>
+	<Struct name = "SDropItem" comment = "掉落信息" >
+		<Member	type="LsUInt32"	name="ItemType"	comment="掉落类型 1背包 2-材料 3-装备 4-宝石" />
+		<Member	type="LsUInt32"	name="ItemID"	comment="掉落ID" />
+		<Member	type="LsUInt32"	name="ItemCount"	comment="数量" />
+	</Struct>
+	<Vector name ="VecSDropItem" type="SDropItem" comment="cmment"/>
+	<Struct name = "SPopulationRes" comment = "人口资源信息" >
+		<Member	type="LsInt32"	name="cur_population"	comment="当前人口" />
+		<Member	type="LsInt32"	name="max_population"	comment="最大人口" />
+		<Member	type="LsInt32"	name="hour_output"	comment="每小时恢复" />
+	</Struct>
+	<Struct name = "SEquip" comment = "装备数据" >
+		<Member	type="LsUInt32"	name="ins_id"	comment="实例ID" />
+		<Member	type="LsUInt32"	name="item_id"	comment="策划配置ID" />
+		<Member	type="LsUInt32"	name="city"	comment="英雄所在城市" />
+		<Member	type="LsUInt32"	name="hero"	comment="装备的英雄" />
+		<Member	type="LsUInt32"	name="pos"	comment="装备在英雄身上的位置" />
+		<Member	type="LsInt32"	name="quality"	comment="品质" />
+		<Member	type="LsInt32"	name="role_item_ins_id"	comment="和玩家相关的实例ID" />
+	</Struct>
+	<Struct name = "STechnologyInfo" comment = "科技信息" >
+		<Member	type="LsUInt32"	name="tech_position"	comment="位置" />
+		<Member	type="LsUInt32"	name="tech_id"	comment="科技ID(包含等级)" />
+		<Member	type="LsUInt32"	name="tech_level"	comment="科技等级" />
+		<Member	type="LsUInt32"	name="develop_city_id"	comment="研发的城池ID" />
+		<Member	type="LsInt32"	name="develop_state"	comment="科研状态(0正在研发, 1研发完成)" />
+		<Member	type="LsInt32"	name="startTime"	comment="状态起始时间" />
+		<Member	type="LsInt32"	name="endTime"	comment="状态结束时间" />
+		<Member	type="LsInt32"	name="league_help"	comment="是否申请过联盟帮助" />
+		<Member	type="LsInt32"	name="add_speed"	comment="加速时间" />
+	</Struct>
+	<Vector name ="VecTechnologyInfo" type="STechnologyInfo" comment="科技列表"/>
+	<Struct name = "SResourceInfo" comment = "资源信息" >
+		<Member	type="LsInt64"	name="res_current_value"	comment="当前资源量" />
+		<Member	type="LsInt32"	name="res_hour_output"	comment="每小时恢复" />
+		<Member	type="LsInt64"	name="res_store_max"	comment="最大资源量" />
+		<Member	type="LsInt32"	name="res_store_protect"	comment="保护资源量" />
+		<Member	type="LsInt32"	name="res_keep_cost"	comment="维护消耗量" />
+		<Member	type="LsInt32"	name="last_update"	comment="上次更新时间" />
+	</Struct>
+	<Struct name = "SHurtArmyInfo" comment = "伤兵信息" >
+		<Member	type="LsInt32"	name="army_id"	comment="兵种ID" />
+		<Member	type="LsInt32"	name="army_count"	comment="兵种数量" />
+	</Struct>
+	<Vector name ="VecHurtArmy" type="SHurtArmyInfo" comment="伤兵列表"/>
+	<Struct name = "STreatArmyInfo" comment = "治疗信息" >
+		<Member	type="LsInt32"	name="pos_index"	comment="治疗的地块" />
+		<Member	type="VecHurtArmy"	name="hurt_army_list"	comment="伤兵列表" />
+		<Member	type="LsInt32"	name="start_time"	comment="开始治疗时间" />
+		<Member	type="LsInt32"	name="end_time"	comment="治疗结束时间" />
+		<Member	type="LsInt32"	name="ishelped"	comment="请求帮助" />
+	</Struct>
+	<Struct name = "STreatInfo" comment = "治疗" >
+		<Member	type="STreatArmyInfo"	name="treat_army_info"	comment="治疗信息" />
+		<Member	type="LsInt32"	name="hospital_capacity"	comment="医院容量" />
+	</Struct>
+	<Struct name = "SItemBuffInfo" comment = "道具buff信息" >
+		<Member	type="LsInt32"	name="buff_id"	comment="buffID" />
+		<Member	type="LsInt64"	name="start_time"	comment="buff起始时间" />
+		<Member	type="LsInt64"	name="end_time"	comment="buff结束时间" />
+	</Struct>
+	<Vector name ="VecItemBuff" type="SItemBuffInfo" comment="道具buff信息列表"/>
+	<Struct name = "EnemyLeagueInfo" comment = "敌方联盟信息" >
+		<Member	type="LsInt32"	name="league_id"	comment="攻击方id" />
+		<Member	type="LsInt16"	name="protocol_state"	comment="议和状态" />
+		<Member	type="LsInt64"	name="startTime"	comment="开始时间" />
+		<Member	type="string"	name="protocol_content"	comment="议和内容" />
+	</Struct>
+	<Vector name ="VecEnemyLeagueInfo" type="EnemyLeagueInfo" comment="敌方联盟信息列表"/>
+	<Struct name = "SLoseInfo" comment = "联盟战败信息" >
+		<Member	type="LsInt32"	name="isLosing"	comment="是否在战败中" />
+		<Member	type="LsInt64"	name="endTime"	comment="战败状态结束时间" />
+		<Member	type="string"	name="tag"	comment="击败本方的敌方联盟的标志" />
+	</Struct>
+	<Struct name = "SLeagueRecord" comment = "联盟战争大厅信息记录" >
+		<Member	type="VecEnemyLeagueInfo"	name="enemy_league_list"	comment="敌对联盟列表" />
+		<Member	type="VecEnemyLeagueInfo"	name="friend_league_list"	comment="友好联盟列表" />
+		<Member	type="SLoseInfo"	name="lose_info"	comment="联盟战败信息" />
+	</Struct>
+	<Struct name = "SLeagueHistoryWar" comment = "联盟历史战争记录" >
+		<Member	type="string"	name="league_name"	comment="联盟名字" />
+		<Member	type="string"	name="league_tag"	comment="联盟标记" />
+		<Member	type="LsInt16"	name="league_level"	comment="联盟等级" />
+		<Member	type="LsInt32"	name="league_power"	comment="联盟实力" />
+		<Member	type="LsInt16"	name="league_lanaguage"	comment="联盟语言" />
+		<Member	type="LsInt16"	name="result"	comment="战争结果" />
+		<Member	type="SUnionFlagInfo"	name="league_flag"	comment="联盟旗帜" />
+		<Member	type="LsInt32"	name="end_time"	comment="结束时间" />
+	</Struct>
+	<Vector name ="WarInfoList" type="SLeagueHistoryWar" comment="联盟历史战争记录列表"/>
+	<Struct name = "role_mail" comment = "" >
+		<Member	type="string"	name="guid"	comment="邮件的guid" />
+		<Member	type="LsInt32"	name="stamp"	comment="发送时的unix时戳" />
+		<Member	type="LsInt16"	name="type"	comment="邮件类型" />
+		<Member	type="LsInt16"	name="sub_type"	comment="邮件子类型" />
+		<Member	type="LsInt16"	name="state"	comment="邮件状态" />
+		<Member	type="LsInt32"	name="reciever"	comment="接收者roleid" />
+		<Member	type="string"	name="title"	comment="标题" />
+		<Member	type="string"	name="content"	comment="具体内容" />
+		<Member	type="string"	name="digest"	comment="摘要" />
+		<Member	type="string"	name="reward"	comment="奖励附件" />
+		<Member	type="LsInt16"	name="get"	comment="奖励附件领取状态(0未领取，1领取)" />
+		<Member	type="string"	name="reverse"	comment="扩展用" />
+	</Struct>
+	<Struct name = "mail_digest" comment = "邮件摘要" >
+		<Member	type="string"	name="p1"	comment="参数1" />
+		<Member	type="string"	name="p2"	comment="参数2" />
+		<Member	type="string"	name="p3"	comment="参数3" />
+		<Member	type="string"	name="p4"	comment="参数4" />
+	</Struct>
+	<Struct name = "role_sys_mail" comment = "" >
+		<Member	type="LsUInt32"	name="last_sys_mail"	comment="全局最后一封系统邮件" />
+		<Member	type="LsUInt32"	name="last_king_sys_mail"	comment="王国最后一封系统邮件" />
+	</Struct>
+	<Struct name = "first_tip_mail" comment = "玩家第一次行为提示邮件" >
+		<Member	type="string"	name="tip"	comment="提示文字" />
+		<Member	type="LsInt32"	name="mana"	comment="法力恢复量" />
+		<Member	type="VecSDropResult"	name="dropList"	comment="奖励列表" />
+	</Struct>
+	<Struct name = "reward_mail" comment = "奖励提示邮件" >
+		<Member	type="LsInt32"	name="rank"	comment="排名" />
+	</Struct>	
+	<Struct name = "SRecruitArmyInfo" comment = "征招信息" >
+		<Member	type="VecSArmyInfo"	name="recruit_army_list"	comment="征招士兵列表" />
+		<Member	type="LsInt32"	name="start_time"	comment="开始征招时间" />
+		<Member	type="LsInt32"	name="end_time"	comment="征招结束时间" />
+	</Struct>
+	<Struct name = "SRecruitInfo" comment = "征招预备役" >
+		<Member	type="SRecruitArmyInfo"	name="recruit_army_info"	comment="征招信息" />
+		<Member	type="LsInt32"	name="recruit_count"	comment="征招人数" />
+		<Member	type="LsInt32"	name="recruit_time"	comment="征招时间" />
+	</Struct>
+	<Struct name = "SRaceInfo" comment = "种族信息" >
+		<Member	type="LsUInt32"	name="city_race"	comment="当前种族" />
+		<Member	type="LsUInt32"	name="change_race"	comment="切换种族" />
+		<Member	type="LsUInt32"	name="start_time"	comment="开始时间" />
+		<Member	type="LsUInt32"	name="end_time"	comment="结束时间" />
+	</Struct>
+	<Struct name = "SCollectReport" comment = "采集报告" >
+		<Member	type="LsUInt32"	name="target_kingid"	comment="采集点的王国ID" />
+		<Member	type="LsInt16"	name="target_pox_x"	comment="采集点" />
+		<Member	type="LsInt16"	name="target_pox_y"	comment="采集点" />
+		<Member	type="LsUInt32"	name="gather_id"	comment="map_gather_point.csv中配置的id" />
+		<Member	type="VecSDropResult"	name="res"	comment="采集结果" />
+	</Struct>
+	<Struct name = "SArmyKeepInfo" comment = "军队维护信息" >
+		<Member	type="LsInt32"	name="army_id"	comment="兵种ID" />
+		<Member	type="LsInt32"	name="army_normal"	comment="在城内的正常兵种数量" />
+	</Struct>
+	<Vector name ="VecArmyKeep" type="SArmyKeepInfo" comment="军队维护列表"/>
+	<Struct name = "SPosSave" comment = "坐标收藏" >
+		<Member	type="LsUInt32"	name="id"	comment="保存ID" />
+		<Member	type="LsUInt32"	name="kingid"	comment="王国ID" />
+		<Member	type="LsInt16"	name="pos_x"	comment="" />
+		<Member	type="LsInt16"	name="pos_y"	comment="" />
+		<Member	type="string"	name="name"	comment="收藏项名称" />
+		<Member	type="LsUInt32"	name="ctype"	comment="收藏类型" />
+	</Struct>
+	<Vector name ="VecSPosSave" type="SPosSave" comment="坐标收藏"/>
+	<Struct name = "STradeReport" comment = "运输报告" >
+		<Member	type="LsUInt32"	name="sender_kingid"	comment="发起者王国ID" />
+		<Member	type="LsInt16"	name="sender_pox_x"	comment="发起者X坐标" />
+		<Member	type="LsInt16"	name="sender_pox_y"	comment="发起者Y坐标" />
+		<Member	type="LsInt16"	name="sender_rank"	comment="发起者的军阶等级" />
+		<Member	type="string"	name="sender_name"	comment="发起者的名字" />
+		<Member	type="LsInt16"	name="sender_icon"	comment="发起者的头像" />
+		<Member	type="LsUInt64"	name="sender_id"	comment="发起者的ID" />
+		<Member	type="LsInt16"	name="target_pox_x"	comment="目标的X坐标" />
+		<Member	type="LsInt16"	name="target_pox_y"	comment="目标的Y坐标" />
+		<Member	type="string"	name="target_name"	comment="目标的名字" />
+		<Member	type="LsInt16"	name="target_rank"	comment="目标的军阶等级" />
+		<Member	type="LsInt16"	name="target_icon"	comment="目标的头像" />
+		<Member	type="LsUInt64"	name="target_id"	comment="目标的ID" />
+		<Member	type="VecSDropResult"	name="res"	comment="运输的资源" />
+	</Struct>
+	<Struct name = "SBossReport" comment = "打野怪报告" >
+		<Member	type="LsUInt32"	name="target_kingid"	comment="目标的王国ID" />
+		<Member	type="LsInt16"	name="target_pox_x"	comment="目标的X坐标" />
+		<Member	type="LsInt16"	name="target_pox_y"	comment="目标的Y坐标" />
+		<Member	type="LsUInt32"	name="face_id"	comment="英雄脸庞ID" />
+		<Member	type="string"	name="hero_name"	comment="英雄姓名" />
+		<Member	type="LsUInt32"	name="hero_exp"	comment="英雄获得经验" />
+		<Member	type="LsUInt32"	name="monster_id"	comment="野怪ID" />
+		<Member	type="LsInt32"	name="monster_left_hp"	comment="野怪剩余血量" />
+		<Member	type="LsInt32"	name="monster_lost_hp"	comment="本次战斗野怪失去的血量" />
+		<Member	type="VecSDropResult"	name="get_material"	comment="获得资源或材料" />
+	</Struct>
+	<Struct name = "Spy_Struct" comment = "侦查单条信息数据结构" >
+		<Member	type="LsInt64"	name="value"	comment="数值" />
+		<Member	type="LsInt8"	name="isValueFuzzy"	comment="是否数值模糊(1模糊，0不模糊)" />
+	</Struct>
+	<Struct name = "Spy_Struct_Army" comment = "兵种侦查单条信息数据结构" >
+		<Member	type="LsInt32"	name="a"	comment="兵种id" />
+		<Member	type="LsInt32"	name="b"	comment="兵种数量" />
+		<Member	type="LsInt8"	name="c"	comment="是否信息名模糊(1隐藏，0不隐藏)" />
+		<Member	type="LsInt8"	name="d"	comment="是否数值模糊(1模糊，0不模糊)" />
+	</Struct>
+	<Vector name ="VecSSpyArmy" type="Spy_Struct_Army" comment="兵种侦查信息"/>
+	<Struct name = "Spy_Struct_Buff" comment = "侦查战斗buff单条信息数据结构" >
+		<Member	type="LsInt16"	name="b"	comment="buffID" />
+		<Member	type="LsInt32"	name="v"	comment="数值" />
+		<Member	type="LsInt8"	name="i"	comment="是否数值模糊(1模糊，0不模糊)" />
+	</Struct>
+	<Vector name ="VecSSpyBuff" type="Spy_Struct_Buff" comment="兵种buff侦查信息"/>
+	<Struct name = "SSpyReportFight" comment = "战斗力量侦查报告" >
+		<Member	type="LsInt32"	name="armyTotal"	comment="军队总数" />
+		<Member	type="VecSSpyArmy"	name="armyInfo"	comment="军队详细信息" />
+		<Member	type="VecSSpyBuff"	name="buffInfo"	comment="战斗buff详细信息" />
+	</Struct>
+	<Struct name = "Spy_CastleInfo" comment = "侦查信息-城堡基本信息" >
+		<Member	type="string"	name="playerName"	comment="玩家姓名" />
+		<Member	type="string"	name="castleName"	comment="城堡姓名" />
+		<Member	type="LsInt16"	name="iconID"	comment="头像iconID" />
+		<Member	type="string"	name="leagueFlag"	comment="联盟标识" />
+		<Member	type="LsInt16"	name="kingdomID"	comment="王国ID" />
+		<Member	type="LsInt16"	name="posX"	comment="坐标x" />
+		<Member	type="LsInt16"	name="posY"	comment="坐标y" />
+		<Member	type="Spy_Struct"	name="magicPower"	comment="法术强度" />
+	</Struct>
+	<Struct name = "Spy_ResourceInfo" comment = "侦查信息-城堡资源信息" >
+		<Member	type="Spy_Struct"	name="food"	comment="粮食资源" />
+		<Member	type="Spy_Struct"	name="wood"	comment="木头资源" />
+		<Member	type="Spy_Struct"	name="stone"	comment="石头资源" />
+		<Member	type="Spy_Struct"	name="iron"	comment="铁资源" />
+		<Member	type="Spy_Struct"	name="silver"	comment="银资源" />
+	</Struct>
+	<Struct name = "Spy_ArmyInfo" comment = "侦查信息-城堡援军信息" >
+		<Member	type="LsInt32"	name="supportTotal"	comment="援军总数" />
+		<Member	type="VecSSpyArmy"	name="supportInfo"	comment="援军详细信息" />
+	</Struct>
+	<Struct name = "Spy_TrapInfo" comment = "侦查信息-城堡陷阱信息" >
+		<Member	type="LsInt32"	name="trapTotal"	comment="陷阱总数" />
+		<Member	type="VecSSpyArmy"	name="trapInfo"	comment="陷阱详细信息" />
+	</Struct>
+	<Struct name = "SSpyReport" comment = "城堡侦查报告" >
+		<Member	type="LsInt32"	name="notify_type"	comment="战报类型" />
+		<Member	type="Spy_CastleInfo"	name="castle_info"	comment="侦查信息-城堡基本信息" />
+		<Member	type="Spy_ResourceInfo"	name="resource_info"	comment="侦查信息-城堡资源信息" />
+		<Member	type="Spy_ArmyInfo"	name="support_info"	comment="侦查信息-城堡援军信息" />
+		<Member	type="Spy_TrapInfo"	name="trap_info"	comment="侦查信息-城堡陷阱信息" />
+		<Member	type="SSpyReportFight"	name="fight_info"	comment="侦查信息-城堡战斗力量信息" />
+		<Member	type="string"	name="spy_tip"	comment="侦查提示信息" />
+	</Struct>
+	<Struct name = "SSpyReportArmy" comment = "军队侦查报告" >
+		<Member	type="LsInt32"	name="notify_type"	comment="战报类型" />
+		<Member	type="LsInt32"	name="march_type"	comment="行军类型" />
+		<Member	type="Spy_CastleInfo"	name="castle_info"	comment="侦查信息-城堡基本信息" />
+		<Member	type="SSpyReportFight"	name="fight_info"	comment="侦查信息-城堡战斗力量信息" />
+		<Member	type="string"	name="spy_tip"	comment="侦查提示信息" />
+	</Struct>
+	<Struct name = "SSpyBeReported" comment = "被别人侦查报告" >
+		<Member	type="LsInt32"	name="notify_type"	comment="战报类型" />
+		<Member	type="string"	name="playerName"	comment="玩家姓名" />
+		<Member	type="LsInt16"	name="iconID"	comment="头像iconID" />
+		<Member	type="string"	name="leagueFlag"	comment="联盟标识" />
+	</Struct>
+	<Struct name = "SLeagueEventNotify" comment = "联盟事件通知" >
+		<Member	type="string"	name="league_name"	comment="联盟名字" />
+		<Member	type="string"	name="member_name"	comment="成员名字" />
+		<Member	type="string"	name="member_name2"	comment="成员名字" />
+	</Struct>
+	<Struct name = "SDeclareWarReport" comment = "联盟主动宣战通知" >
+		<Member	type="string"	name="d_r_n"	comment="宣战者玩家名字" />
+		<Member	type="string"	name="d_l_n"	comment="宣战者玩家联盟名字" />
+		<Member	type="string"	name="b_l_n"	comment="被宣战联盟名字" />
+	</Struct>
+	<Struct name = "SFightWarReport" comment = "联盟战争宣战通知" >
+		<Member	type="string"	name="d_r_n"	comment="宣战者玩家名字" />
+		<Member	type="string"	name="d_l_n"	comment="宣战者玩家联盟名字" />
+		<Member	type="string"	name="d_l_t"	comment="宣战者玩家联盟标记" />
+		<Member	type="string"	name="b_l_t"	comment="被宣战者玩家联盟标记" />
+		<Member	type="string"	name="b_l_n"	comment="被宣战联盟名字" />
+		<Member	type="string"	name="b_r_n"	comment="被攻击玩家名字" />
+		<Member	type="LsInt32"	name="K"	comment="战争发生点k" />
+		<Member	type="LsInt32"	name="X"	comment="战争发生点X" />
+		<Member	type="LsInt32"	name="Y"	comment="战争发生点y" />
+	</Struct>
+	<Struct name = "SMakePeaceReport" comment = "联盟议和情况通知" >
+		<Member	type="LsInt32"	name="a"	comment="回答（1同意2拒绝）" />
+		<Member	type="string"	name="a_l_n"	comment="提出和平方联盟名字" />
+		<Member	type="string"	name="r_r_n"	comment="应答方玩家名字" />
+		<Member	type="string"	name="r_l_n"	comment="应答方联盟名字" />
+		<Member	type="string"	name="r_l_t"	comment="应答方联盟标记" />
+	</Struct>
+	<Struct name = "SLeagueResultReport" comment = "联盟胜负情况通知" >
+		<Member	type="string"	name="w_t"	comment="胜利方联盟标记" />
+		<Member	type="string"	name="w_n"	comment="胜利方联盟名字" />
+		<Member	type="string"	name="w_r"	comment="胜利方玩家名字" />
+		<Member	type="string"	name="l_t"	comment="失败方联盟标记" />
+		<Member	type="string"	name="l_n"	comment="失败方联盟名字" />
+	</Struct>
+	<Struct name = "SRoleInfoReserve" comment = "角色信息扩展" >
+		<Member	type="LsInt32"	name="magic_dust" comment="魔尘" />
+		<Member	type="string"	name="pay_str"	  comment="支付字符串" />
+		<Member	type="string"	name="platform"	  comment="运营平台" />
+		<Member	type="string"	name="log_url"	  comment="客户端日志上传路径" />
+		<Member	type="LsInt32"	name="log_upload" comment="是否上传日志(0否1是)" />
+		<Member	type="LsInt32"	name="log_level"  comment="日志级别" />
+		<Member	type="LsInt32"	name="left_find"  comment="剩余大地图查询次数" />
+		<Member	type="string"	name="HotURL"	 comment="热更URL" />
+		<Member	type="string"	name="open_id"	 comment="openid" />
+		<Member	type="VecUInt32"	name="race_list"      comment="种族列表" />
+		<Member	type="VecUInt32"	name="first_pay_list" comment="首充ID列表" />
+	</Struct>
+	<Struct name = "DB_Fd" comment = "存数据库" >
+		<Member	type="string"	name="fd"	comment="字段名" />
+		<Member	type="string"	name="data"	comment="数据" />
+		<Member	type="LsUInt32"	name="dataType"	comment="字段类型 0-字符串 1- 数字" />
+	</Struct>
+	<Vector name ="VecDB_Fd" type="DB_Fd" comment="存数据库"/>
+	<Struct name = "DB_Player_Info" comment = "保存玩家数据" >
+		<Member	type="LsUInt32"	name="roleid"	comment="角色ID" />
+		<Member	type="VecDB_Fd"	name="vecData"	comment="数据" />
+	</Struct>
+	<Struct name = "DB_Create_Info" comment = "创建数据库" >
+		<Member	type="string"	name="table"	comment="表名" />
+		<Member	type="string"	name="where"	comment="条件" />
+		<Member	type="VecDB_Fd"	name="vecData"	comment="数据" />
+	</Struct>
+	<Struct name = "SOneCipher" comment = "密文" >
+		<Member	type="LsUInt32"	name="idCipher"	comment="密文ID" />
+		<Member	type="LsInt32"	name="state"	comment="状态" />
+	</Struct>
+	<Vector name ="VecSOneCipher" type="SOneCipher" comment="密文"/>
+	<Struct name = "STowerCard" comment = "塔罗牌" >
+		<Member	type="LsUInt32"	name="_idCard"	comment="塔罗牌" />
+		<Member	type="VecSOneCipher"	name="_cipher"	comment="密文序列" />
+	</Struct>
+	<Struct name = "SDailyTask" comment = "日常任务" >
+		<Member	type="LsUInt32"	name="_taskID"	comment="任务ID" />
+		<Member	type="LsUInt32"	name="_curCipherID"	comment="密文ID" />
+		<Member	type="LsInt32"	name="_taskTime"	comment="任务时长" />
+		<Member	type="LsInt32"	name="_dayliTaskState"	comment="状态" />
+		<Member	type="VecSDropResult"	name="_reward"	comment="奖励" />
+		<Member	type="LsUInt32"	name="heroID"	comment="做任务英雄" />
+		<Member	type="VecSDropResult"	name="_spe_reward"	comment="额外奖励" />
+		<Member	type="bool"	name="getSpeReward"	comment="是否获取到额外奖励" />
+	</Struct>
+	<Vector name ="VecSDailyTask" type="SDailyTask" comment="日常任务"/>
+	<Struct name = "SCurDailyTask" comment = "当前日常任务" >
+		<Member	type="LsUInt32"	name="taskID"	comment="日常任务ID" />
+		<Member	type="LsUInt32"	name="endTime"	comment="结束时间" />
+		<Member	type="LsUInt32"	name="heroID"	comment="做任务英雄" />
+		<Member	type="LsUInt32"	name="startTime"	comment="开始时间" />
+	</Struct>
+	<Struct name = "SPlayerDailyTask" comment = "日常任务" >
+		<Member	type="VecSDailyTask"	name="vecTask"	comment="日常任务" />
+		<Member	type="SCurDailyTask"	name="curTask"	comment="当前任务" />
+		<Member	type="STowerCard"	name="tarot"	comment="塔罗牌" />
+		<Member	type="LsUInt32"	name="lastFlush"	comment="上次刷新时间" />
+	</Struct>
+	<Struct name = "STaskData" comment = "任务数据" >
+		<Member	type="LsUInt32"	name="itemID"	comment="物品ID" />
+		<Member	type="LsInt32"	name="count"	comment="当前数量" />
+	</Struct>
+	<Vector name ="VecSTaskData" type="STaskData" comment="任务数据"/>
+	<Struct name = "SEmpireTask" comment = "帝国任务" >
+		<Member	type="LsUInt32"	name="taskID"	comment="任务ID" />
+		<Member	type="LsInt32"	name="taskSingleData"	comment="任务数据" />
+		<Member	type="LsInt32"	name="taskState"	comment="任务状态" />
+		<Member	type="VecSTaskData"	name="vecData"	comment="任务数据" />
+	</Struct>
+	<Vector name ="VecSEmpireTask" type="SEmpireTask" comment="帝国任务数据"/>
+	<Struct name = "IntKeyValue" comment = "键值对" >
+		<Member	type="LsUInt32"	name="key"	comment="键" />
+		<Member	type="LsInt64"	name="value"	comment="值" />
+	</Struct>
+	<Vector name ="VecIntKeyValue" type="IntKeyValue" comment="cmment"/>
+	<Struct name = "SPlayerMagic" comment = "玩家法术数据" >
+		<Member	type="VecIntKeyValue"	name="vecCard"	comment="卡牌" />
+		<Member	type="VecIntKeyValue"	name="vecRes"	comment="卡牌资源" />
+		<Member	type="LsInt32"	name="dust"	comment="魔尘资源" />
+		<Member	type="LsInt32"	name="newHelp"	comment="新的卡牌帮助(0无1有)" />
+		<Member	type="LsInt32"	name="helpCard"	comment="新的帮助卡牌(0无1有)" />
+	</Struct>
+	<Struct name = "SHeroSkill" comment = "英雄技能数据" >
+		<Member	type="LsInt32"	name="skillID"	comment="技能ID" />
+		<Member	type="LsInt16"	name="skillPoint"	comment="投入的技能点" />
+		<Member	type="LsInt16"	name="isEffect"	comment="是否生效(0不生效，1生效)" />
+	</Struct>
+	<Struct name = "SHeroData" comment = "英雄数据" >
+		<Member	type="LsUInt32"	name="_heroID"	comment="英雄ID" />
+		<Member	type="string"	name="_heroName"	comment="名字 无 String 16个字符 随机生成，通过道具修改" />
+		<Member	type="LsInt32"	name="_heroFace"	comment="形象 无 Integer 1~16 一套资源对应一个ID" />
+		<Member	type="LsUInt32"	name="_heroCity"	comment="城市归属 无 Integer 1~3 玩家城市id" />
+		<Member	type="LsUInt32"	name="_sex"	comment="性别(0女1男)" />
+		<Member	type="LsInt32"	name="_heroLevel"	comment="等级 无 Integer 1~60" />
+		<Member	type="LsInt32"	name="_heroExp"	comment="经验值" />
+		<Member	type="LsInt16"	name="_heroSkillPoint"	comment="英雄剩余技能点" />
+		<Member	type="SHeroSkill"	name="_heroSkill1"	comment="英雄1级技能" />
+		<Member	type="SHeroSkill"	name="_heroSkill2"	comment="英雄15级技能" />
+		<Member	type="SHeroSkill"	name="_heroSkill3"	comment="英雄30级技能" />
+		<Member	type="LsInt32"	name="_heroPower"	comment="实力  1~999999 每次升级、进阶后增加" />
+		<Member	type="LsInt32"	name="_heroGrade"	comment="进阶次数 无 Integer 1~99 进阶后的英雄才显示" />
+		<Member	type="LsInt32"	name="_heroState"	comment="状态 无 Integer 1~5 1空闲、2出征、3被俘、4死亡、5采集" />
+		<Member	type="LsUInt32"	name="_heroPos"	comment="当前所在位置 状态 1、4时为当前城市ID 3、时为进攻者城市ID 2、5为行军ID" />
+		<Member	type="SetUInt16"	name="_heroJob"	comment="职位" />
+		<Member	type="LsUInt32"	name="_captiveCity"	comment="俘获的城市ID" />
+		<Member	type="LsUInt32"	name="_marchID"	comment="俘获的行军ID" />
+		<Member	type="LsInt32"	name="_releaseTime"	comment="释放时间" />
+		<Member	type="LsInt32"	name="sendhelp"	comment="是否发送过帮助请求 0 - 否 1- 是" />
+	</Struct>
+	<Vector name ="VecSHeroData" type="SHeroData" comment="cmment"/>
+	<Struct name = "SUIntValue" comment = "此处添加注释" >
+		<Member	type="LsUInt32"	name="val"	comment="Add comment here" />
+	</Struct>
+	<Vector name ="VecSUIntValue" type="SUIntValue" comment="cmment"/>
+	<Struct name = "SAllHeroData" comment = "此处添加注释" >
+		<Member	type="VecSHeroData"	name="vecHero"	comment="自己的英雄" />
+		<Member	type="VecSUIntValue"	name="otherHero"	comment="俘获的英雄" />
+	</Struct>
+	<Struct name = "SSystemMailData" comment = "系统通知" >
+		<Member	type="LsInt32"	name="notify_type"	comment="通知类型:1系统公告 2城市提示 3更新公告 4联盟拒绝" />
+		<Member	type="string"	name="content"	comment="内容(4联盟名字)" />
+	</Struct>
+	<Struct name = "SCastleFace" comment = "城堡外观" >
+		<Member	type="LsInt32"	name="cfg_id"	   comment="外观配置ID 0 表示无外观" />
+		<Member	type="LsInt32"	name="left_time"	comment="外观剩余存在时间" />
+		<Member	type="LsInt32"	name="end_time"	   comment="截止时间戳" />
+		<Member	type="LsInt32"	name="item_id"	   comment="道具ID" />
+	</Struct>
+	<Struct name = "SBigMapCastleInfo" comment = "大地图城市扩展信息" >
+		<Member	type="LsInt32"	name="last_defence"	comment="上一次被攻击时间" />
+		<Member	type="LsInt32"	name="result"	comment="0失败1胜利" />
+		<Member	type="LsInt32"	name="power"	comment="所属玩家实力" />
+		<Member	type="SLoseInfo"	name="loseinfo"	comment="联盟战败信息" />
+		<Member	type="LsInt32"	name="relic_count"	comment="总圣物数量" />
+		<Member	type="LsInt8"	name="has_6relic"	comment="是否有6级圣物(0没有,1有)" />
+		<Member	type="LsInt32"	name="has_captive"	comment="是否有俘虏(0没有,1有)" />
+		<Member	type="LsInt32"	name="last_march"	comment="上一次被攻击行军" />
+		<Member	type="SCastleFace"	name="castle_face"	comment="城堡外观信息" />
+		<Member	type="LsInt32"	name="city_race"	comment="城市种族" />
+	</Struct>
+	<Struct name = "SInnerCastleInfo" comment = "内城扩展信息" >
+		<Member	type="LsInt32"	name="last_defence"	comment="上一次被攻击时间" />
+		<Member	type="LsInt32"	name="result"	comment="上一次被攻击0失败1胜利" />
+		<Member	type="LsInt32"	name="embassy"	comment="是否有大使馆0无1有" />
+		<Member	type="LsInt64"	name="max_tribe"	comment="城市雇佣蛮族最大容量" />
+		<Member	type="LsInt64"	name="left_tribe"	comment="城市剩余可雇佣蛮族容量" />
+		<Member	type="LsInt64"	name="max_guard"	comment="联盟雇佣军上限" />
+		<Member	type="LsInt64"	name="left_guard"	comment="剩余可雇佣联盟卫队容量" />
+		<Member	type="LsInt64"	name="max_hurt"	comment="城市医院上限" />
+		<Member	type="LsInt64"	name="max_aid"	comment="城市援军上限" />
+		<Member	type="LsInt64"	name="cur_aid"	comment="城市当前援军" />
+		<Member	type="LsInt64"	name="weright_add"	comment="负重加成" />
+		<Member	type="LsInt32"	name="league_range"	comment="是否在联盟城市周围(0否1是)" />
+		<Member	type="SCastleFace"	name="castle_face"	comment="城堡外观信息" />
+	</Struct>
+	<Struct name = "SLogInfo" comment = "日志信息" >
+		<Member	type="string"	name="role_name"	comment="玩家名称" />
+		<Member	type="LsUInt64"	name="config_id"	comment="事物ID" />
+		<Member	type="LsInt64"	name="config_num"	comment="事物数量" />
+		<Member	type="LsInt32"	name="log_time"	comment="记录时间" />
+	</Struct>
+	<Vector name ="VecSLogInfo" type="SLogInfo" comment="cmment"/>
+	<Struct name = "SLeagueKey" comment = "联盟KEY的组成" >
+		<Member	type="string"	name="key"	comment="KEY值" />
+		<Member	type="LsUInt32"	name="league_id"	comment="联盟ID" />
+	</Struct>
+	<Struct name = "SWarRecord" comment = "联盟战争记录" >
+		<Member	type="LsInt32"	name="war_type"	comment="联盟战争类型" />
+		<Member	type="string"	name="attacker"	comment="攻击者名称" />
+		<Member	type="string"	name="attack_tag"	comment="攻击者联盟标签" />
+		<Member	type="string"	name="defender"	comment="防御者名称" />
+		<Member	type="string"	name="defend_tag"	comment="防御者联盟标签" />
+		<Member	type="LsInt32"	name="war_result"	comment="战争结果(1攻击者胜,2防御者胜)" />
+		<Member	type="LsInt32"	name="war_time"	comment="战争发生时间点" />
+		<Member	type="LsInt32"	name="fight_x"	comment="战争发生的X坐标" />
+		<Member	type="LsInt32"	name="fight_y"	comment="战争发生的Y坐标" />
+		<Member	type="LsInt32"	name="kingdom_id"	comment="战争发生的王国ID" />
+	</Struct>
+	<Vector name ="VecSWarRecord" type="SWarRecord" comment="cmment"/>
+	<Struct name = "SLeagueInfoReverse" comment = "联盟信息扩展" >
+		<Member	type="LsInt64"	name="u_capital"	comment="联盟资金" />
+		<Member	type="LsInt32"	name="max_level"	comment="最高等级" />
+		<Member	type="LsInt64"	name="indenture"	comment="联盟契约" />
+		<Member	type="LsInt64"	name="manuscript"	comment="研究手稿" />
+		<Member	type="LsInt32"	name="castle_state"	comment="联盟城堡状态(0没有创建1正常2流亡3重建中)" />
+		<Member	type="LsInt32"	name="fight_count"	comment="战争数量" />
+		<Member	type="string"	name="league_local"	comment="联盟城堡位置" />
+		<Member	type="string"	name="boom_data"	comment="联盟繁荣度" />
+		<Member	type="LsInt32"	name="last_exile_time"	comment="上次流亡时间" />
+		<Member	type="LsInt32"	name="last_comment"	comment="最后一次评论时间" />
+		<Member	type="LsInt32"	name="last_fresh"	comment="刷新资源价格时间" />
+		<Member	type="LsInt32"	name="last_buy"	comment="最后一次团购时间" />
+		<Member	type="LsInt64"	name="city_power"	comment="联盟城市实力" />
+		<Member	type="LsInt64"	name="army_power"	comment="联盟军队实力" />
+		<Member	type="LsInt64"	name="army_count"	comment="联盟军队数量" />
+		<Member	type="SLoseInfo"	name="loseinfo"	comment="联盟战败信息" />
+		<Member	type="SetUInt16"	name="enemyList"	comment="敌对联盟列表" />
+		<Member	type="LsInt32"	name="gift_level"	comment="联盟礼物等级" />
+		<Member	type="LsInt64"	name="gift_point"	comment="联盟礼物点" />
+		<Member	type="LsInt32"	name="need_level"	comment="加入联盟等级限制" />
+		<Member	type="LsInt32"	name="need_power"	comment="加入联盟实力限制" />
+	</Struct>
+	<Struct name = "SRuleSystem" comment = "常规制度" >
+		<Member	type="LsUInt32"	name="sys_pos"	comment="制度位置" />
+		<Member	type="LsUInt32"	name="sys_id"	comment="制度ID" />
+		<Member	type="LsInt32"	name="sys_level"	comment="制度等级" />
+	</Struct>
+	<Vector name ="VecSRuleSystem" type="SRuleSystem" comment="制度列表"/>
+	<Struct name = "SCountrySystem" comment = "国家制度" >
+		<Member	type="LsUInt32"	name="sys_id"	comment="制度ID" />
+		<Member	type="LsInt32"	name="sys_state"	comment="制度研究状态(0未研究1研究)" />
+		<Member	type="LsInt32"	name="sys_active"	comment="制度激活状态(0未激活1激活)" />
+	</Struct>
+	<Vector name ="VecSCountrySystem" type="SCountrySystem" comment="国家制度列表"/>
+	<Struct name = "SSystemInfo" comment = "制度信息" >
+		<Member	type="LsUInt32"	name="sys_target"	comment="当前关注制度ID" />
+		<Member	type="LsInt32"	name="accumulated"	comment="文化累加值" />
+		<Member	type="LsInt32"	name="interior_reform"	comment="内政改革结束时间" />
+		<Member	type="LsInt32"	name="military_reform"	comment="军事改革结束时间" />
+		<Member	type="VecSRuleSystem"	name="freedom_list"	comment="自由" />
+		<Member	type="VecSRuleSystem"	name="reason_list"	comment="理性" />
+		<Member	type="VecSRuleSystem"	name="honour_list"	comment="荣耀" />
+		<Member	type="VecSCountrySystem"	name="interior_list"	comment="内政" />
+		<Member	type="VecSCountrySystem"	name="military_list"	comment="军事" />
+	</Struct>
+	<Struct name = "SCultureInfo" comment = "文化信息" >
+		<Member	type="LsInt64"	name="cur_value"	comment="文化当前值" />
+		<Member	type="LsInt32"	name="hour_output"	comment="每小时产出" />
+		<Member	type="LsInt32"	name="output_add"	comment="产出加成(万分比)" />
+		<Member	type="LsInt32"	name="accumulated_culture"	comment="文化累加值" />
+	</Struct>
+	<Struct name = "SProgressInfoEx" comment = "进度信息扩展" >
+		<Member	type="LsInt64"	name="config_num"	comment="进度数量or等级显示" />
+	</Struct>
+	<Struct name = "SMagicBoxInfo" comment = "免费宝箱信息" >
+		<Member	type="LsInt32"	name="cur_num"	comment="当前宝箱数" />
+		<Member	type="LsUInt32"	name="endTime"	comment="刷新结束时间" />
+		<Member	type="LsUInt32"	name="lastStart"	comment="刷新strating时间" />
+		<Member	type="LsUInt32"	name="getTimes"	comment="get box times" />
+		<Member	type="LsUInt32"	name="curBox"	comment="" />
+		<Member	type="LsUInt32"	name="param1"	comment="" />
+	</Struct>
+	<Struct name = "SLegendBoxInfo" comment = "传奇宝箱信息" >
+		<Member	type="LsInt32"	name="cur_state"	comment="当前状态" />
+		<Member	type="LsInt32"	name="cur_num"	comment="当前累积次数" />
+		<Member	type="LsInt32"	name="total_num"	comment="当前需要总累积次数" />
+		<Member	type="LsUInt32"	name="lastTime"	comment="上次更新时间" />
+	</Struct>
+	<Struct name = "SOrderRewardInfo" comment = "排行奖励信息" >
+		<Member	type="LsInt32"	name="order_type"	comment="排行榜类型" />
+		<Member	type="LsInt32"	name="order_rank"	comment="排行榜排名" />
+	</Struct>
+	<Struct name = "SOrderRewardInfoNtf" comment = "排行奖励信息通知" >
+		<Member	type="LsInt32"	name="order_rank"	comment="排行榜排名" />
+		<Member	type="string"	name="player_name"	comment="玩家名字" />
+	</Struct>
+	<Vector name ="VecSOrderRewardInfoNtf" type="SOrderRewardInfoNtf" comment="排行奖励列表通知"/>
+	<Struct name = "SOrderRewardNtf" comment = "排行奖励通知" >
+		<Member	type="LsInt32"	name="order_type"	comment="排行榜类型" />
+		<Member	type="VecSOrderRewardInfoNtf"	name="reward_list"	comment="奖励信息" />
+	</Struct>
+	<Struct name = "SArmyInfoEx" comment = "军队信息扩展" >
+		<Member	type="LsInt32"	name="army_type"	comment="军队类型(0军队1陷阱)" />
+	</Struct>
+	<Struct name = "ROLE" comment = "角色游戏数据" >
+		<Member	type="string"	name="role_all_info"	comment="玩家基本信息" />
+		<Member	type="string"	name="role_strength_info"	comment="玩家实力信息" />
+		<Member	type="string"	name="role_hero_info"	comment="玩家英雄信息" />
+		<Member	type="string"	name="role_game_info"	comment="玩家游戏信息" />
+		<Member	type="string"	name="collet_pos"	comment="地点收藏" />
+		<Member	type="string"	name="daily_task"	comment="日常任务" />
+		<Member	type="string"	name="empire_task"	comment="帝国任务" />
+		<Member	type="string"	name="league_info"	comment="联盟信息" />
+		<Member	type="string"	name="technolog_info"	comment="科研信息" />
+		<Member	type="string"	name="reserve_force"	comment="预备役" />
+		<Member	type="string"	name="magic_force"	comment="法术力量" />
+		<Member	type="string"	name="statitics_info"	comment="统计信息" />
+		<Member	type="string"	name="league_task"	comment="联盟任务" />
+		<Member	type="string"	name="system_info"	comment="系统信息" />
+		<Member	type="string"	name="vip_task"	comment="vip任务" />
+	</Struct>
+	<Struct name = "CASTLE" comment = "城堡游戏数据" >
+		<Member	type="string"	name="base_info"	comment="城堡基本信息" />
+		<Member	type="string"	name="build_info"	comment="地格建筑信息" />
+		<Member	type="string"	name="population"	comment="人口信息" />
+		<Member	type="string"	name="food_res"	comment="粮食信息" />
+		<Member	type="string"	name="wood_res"	comment="木材信息" />
+		<Member	type="string"	name="stone_res"	comment="石头信息" />
+		<Member	type="string"	name="iron_res"	comment="铁矿信息" />
+		<Member	type="string"	name="silver_res"	comment="银信息" />
+		<Member	type="string"	name="army_info"	comment="军队信息" />
+		<Member	type="string"	name="trap_info"	comment="陷阱信息" />
+		<Member	type="string"	name="treat_info"	comment="医院信息" />
+		<Member	type="string"	name="reserve_force"	comment="预备役" />
+		<Member	type="string"	name="race_info"	comment="种族信息" />
+		<Member	type="string"	name="magic_info"	comment="法术信息" />
+		<Member	type="string"	name="hero_info"	comment="英雄信息" />
+		<Member	type="string"	name="technolog_info"	comment="科技信息" />
+		<Member	type="string"	name="itembuff_info"	comment="道具buff信息" />
+		<Member	type="string"	name="culture_info"	comment="文化信息" />
+		<Member	type="string"	name="repair_info"	comment="陷阱维修信息" />
+	</Struct>
+	<Vector name ="VecCastle" type="CASTLE" comment="城堡列表"/>
+	<Struct name = "EQUIP" comment = "装备游戏数据" >
+		<Member	type="string"	name="base_info"	comment="装备基本信息" />
+		<Member	type="string"	name="gem_info"	    comment="宝石镶嵌信息" />
+		<Member	type="string"	name="enchanting"	comment="附魔信息" />
+		<Member	type="string"	name="refine_info"	comment="精炼信息" />
+	</Struct>
+	<Vector name ="VecEquip" type="EQUIP" comment="装备列表"/>
+	<Struct name = "AccountData" comment = "单个账号游戏数据" >
+		<Member	type="ROLE"	name="role"	comment="玩家数据" />
+		<Member	type="VecCastle"	name="castle_list"	comment="所有城堡数据" />
+		<Member	type="VecEquip"	    name="equip_list"	comment="所有装备数据" />
+	</Struct>
+	<Struct name = "SDonateReport" comment = "联盟捐献邮件" >
+		<Member	type="LsInt32"	name="donate_classify"	comment="捐献分类(1捐献资源2捐兵)" />
+		<Member	type="LsInt32"	name="donate_result"	comment="捐献结果(0失败1成功)" />
+		<Member	type="LsInt32"	name="donate_type"	comment="捐献类型(资源id)" />
+		<Member	type="LsInt64"	name="donate_num"	comment="捐献数量" />
+		<Member	type="LsInt64"	name="contribution"	comment="联盟贡献/功勋" />
+		<Member	type="VecSDropResult"	name="reward_item"	comment="道具奖励" />
+	</Struct>
+	<Struct name = "SForgeInfo" comment = "锻造仿信息" >
+		<Member	type="LsUInt32"	name="cdEndTime"	comment="CD结束时间" />
+		<Member	type="LsUInt32"	name="equipid"	comment="锻造装备ID" />
+	</Struct>
+	<Struct name = "SMagicRecord" comment = "法术记录信息" >
+		<Member	type="string"	name="role_name"	comment="施法者名称" />
+		<Member	type="string"	name="league_tag"	comment="联盟标签" />
+		<Member	type="LsUInt32"	name="magic_id"	comment="法术ID" />
+		<Member	type="LsInt32"	name="magic_time"	comment="释放时间" />
+	</Struct>
+	<Vector name ="VecSMagicRecord" type="SMagicRecord" comment="法术记录信息列表"/>
+	<Struct name = "SAllianceGiftInfo" comment = "联盟礼物信息" >
+		<Member	type="LsInt64"	name="this_id"	comment="联盟礼物唯一ID" />
+		<Member	type="LsUInt32"	name="gift_id"	comment="联盟礼物ID" />
+		<Member	type="LsInt32"	name="receive_time"	comment="联盟礼物获得时间" />
+		<Member	type="LsInt32"	name="gift_state"	comment="联盟礼物状态(0未领取1已领取)" />
+		<Member	type="VecSDropResult"	name="reward_item"	comment="道具奖励" />
+	</Struct>
+	<Vector name ="VecSAllianceGiftInfo" type="SAllianceGiftInfo" comment="联盟礼物信息列表"/>
+	<Struct name = "SKeyValue" comment = "字符串字段名整形值" >
+		<Member	type="string"	name="key"	comment="字段名" />
+		<Member	type="LsInt64"	name="value"	comment="值" />
+	</Struct>
+	<Vector name ="VecSKeyValue" type="SKeyValue" comment=""/>
+	<Struct name = "SEnchantAttr" comment = "附魔属性" >
+		<Member	type="string"	name="key"	comment="字段名" />
+		<Member	type="LsInt32"	name="value" comment="值" />
+		<Member	type="LsInt32"	name="rate"	 comment="成长率" />
+	</Struct>
+	<Vector name ="VecSEnchantAttr" type="SEnchantAttr" comment=""/>
+	<Struct name = "SEnchGroup" comment = "属性组数据" >
+		<Member	type="LsInt16"	name="groupID"	comment="属性组id" />
+		<Member	type="LsInt32"	name="value"	comment="修正值" />
+	</Struct>
+	<Vector name ="VecSEnchGroup" type="SEnchGroup" comment="属性组数据"/>	
+	<Struct name = "SEnchanting" comment = "附魔属性" >
+		<Member	type="VecSEnchGroup" name="attr_group"	   comment="附魔属性组" />	
+		<Member	type="VecSEnchantAttr"	 name="attr"	   comment="属性值" />
+	</Struct>
+	
+	<Struct name = "SGemEquip" comment = "镶嵌宝石信息" >
+		<Member	type="LsInt32" name="pos"	   comment="镶嵌的位置" />	
+		<Member	type="LsUInt32"	 name="gem_id"	   comment="宝石ID" />
+	</Struct>
+	<Vector name ="VecSGemEquip" type="SGemEquip" comment="镶嵌宝石组数据"/>
+	<Struct name = "SEquipGemInfo" comment = "装备宝石数据" >
+		<Member	type="LsInt32" name="max_hole"	   comment="可以镶嵌的数量" />	
+		<Member	type="VecSGemEquip"	 name="gem_info"	   comment="属性值" />
+	</Struct>
+	
+	<Struct name = "SRefineData" comment = "装备精炼属性" >
+		<Member	type="VecSKeyValue"	 name="refine_attr" comment="属性值" />
+	</Struct>
+	<Struct name = "SRelicBase" comment = "圣物基础属性" >
+		<Member	type="LsUInt32"	name="id"	comment="实例ID" />
+		<Member	type="LsUInt32"	name="template_id"	comment="模版ID" />
+		<Member	type="LsInt32"	name="level"	comment="等级" />
+		<Member	type="LsInt32"	name="relic_type"	comment="类型" />
+		<Member	type="LsInt32"	name="pos"	comment="出生位置" />
+		<Member	type="LsInt32"	name="state"	comment="当前状态" />
+		<Member	type="LsUInt32"	name="end_time"	comment="结束时间" />
+	</Struct>
+	<Struct name = "SRelicInMap" comment = "圣物地图属性" >
+		<Member	type="LsInt32"	name="x"	comment="X坐标" />
+		<Member	type="LsInt32"	name="y"	comment="y坐标" />
+		<Member	type="LsInt32"	name="left_carry"	comment="剩余搬运进度" />
+	</Struct>
+	<Struct name = "SRelicInCity" comment = "圣物在城市属性" >
+		<Member	type="LsUInt32"	name="city_id"	comment="城市ID" />
+		<Member	type="LsInt32"	name="idx"	comment="供奉位置" />
+	</Struct>
+	<Struct name = "SRelicOnTribe" comment = "圣物在蛮族上属性" >
+		<Member	type="LsInt32"	name="level"	comment="蛮族等级" />
+		<Member	type="LsInt32"	name="tid"	comment="蛮族的模版ID" />
+	</Struct>
+	<Struct name = "SRelicInfo" comment = "藏宝图显示的圣物信息" >
+		<Member	type="LsUInt32"	name="template_id"	comment="模版ID" />
+		<Member	type="LsUInt32"	name="end_time"	comment="结束时间" />
+		<Member	type="LsInt32"	name="posK"	comment="所在地王国id" />
+		<Member	type="LsInt32"	name="posX"	comment="所在地X" />
+		<Member	type="LsInt32"	name="posY"	comment="所在地y" />		
+	</Struct>
+	<Struct name = "MailStrTip" comment = "邮件单句话提示" >
+		<Member	type="string"	name="tip"	comment="提示" />
+	</Struct>	
+	<Struct name = "SCarryInfo" comment = "搬运通知信息" >
+		<Member	type="LsUInt32"	name="relic_id"	comment="圣物模版ID" />
+	</Struct>
+	<Struct name = "Goals" comment = "目标完成情况" >
+		<Member	type="LsUInt32"	name="id"	comment="目标id" />
+		<Member	type="LsInt32"	name="type"	comment="目标类型" />
+		<Member	type="LsUInt8"	name="finish"	comment="完成情况(1完成，0未挖成)" />
+		<Member	type="LsInt64"	name="value"	comment="当前完成的数量" />
+	</Struct>
+	<Vector name ="Days" type="Goals" comment="一天目标完成情况"/>
+	<Struct name = "SevenDaysInfo" comment = "七天目标完成情况" >
+		<Member	type ="LsUInt32"  name="finish"	comment="是否已全部完全" />
+		<Member type ="Days" name="day_list" comment="七天目标完成列表"/>
+	</Struct>
+	<Vector name ="SevenDays" type="SevenDaysInfo" comment="七天目标完成列表"/>	
+	<Struct name = "SSevenDays" comment = "七天情况" >
+		<Member	type ="LsUInt32" name="login_days" comment="当前登录天数" />
+	    <Member type ="SevenDays"   name="day_info"  comment="一天情况" />			
+	</Struct>
+	<Struct name = "SMonthCardInfo" comment = "月卡信息" >
+		<Member	type ="LsUInt32"    name="card_id"   comment="月卡ID" />
+	    <Member type ="LsInt32"     name="end_time"  comment="截止时间" />	
+		<Member type ="LsInt32"     name="is_get"    comment="今日是否领取(0否1是)" />		
+	</Struct>
+	<Vector name ="VecSMonthCardInfo" type="SMonthCardInfo" comment="月卡列表"/>	
+	<Struct name = "SRechargeInfo" comment = "充值活动信息" >
+		<Member	type="LsInt32"	  name="first_pay"	comment="首充(0未充值1已充值2已领取首充奖励)" />	
+		<Member	type="LsInt32"	  name="fund_id"	 comment="成长基金" />
+		<Member	type="VecUInt32"  name="fund_reward" comment="已领取基金等级" />	
+		<Member	type="VecSMonthCardInfo"  name="card_list" comment="月卡列表" />
+		<Member	type="VecUInt32"  name="prefer_list" comment="每日特惠" />
+	</Struct>	
+	<Struct name = "SRoleLimitEventInfo" comment = "玩家限时活动数据" >
+		<Member	type="LsInt32"	name="event_id"	comment="活动id" />		
+		<Member	type ="LsUInt32" name="score" comment="活动积分" />	
+		<Member	type ="LsUInt64" name="time" comment="活动开始时间" />
+		<Member	type ="LsInt32" name="stage" comment="当前阶段" />
+		<Member	type ="LsInt32" name="level" comment="开启活动玩家或联盟等级" />
+	</Struct>	
+	<Vector name ="VecSRoleLimitEventInfo" type="SRoleLimitEventInfo" comment="玩家限时活动数据"/>
+	<Struct name = "SLimitEventData" comment = "限时活动数据" >
+		<Member	type="VecSRoleLimitEventInfo" name="event_list" comment="活动列表" />			
+	</Struct>
+	<Struct name = "LimitEventInfoMail" comment = "玩家限时活动领取奖励邮件" >
+		<Member	type="LsInt32"	name="level"	comment="阶段" />	
+		<Member	type="LsInt32"	name="event_id"	comment="活动ID" />			
+	</Struct>	
+	<Struct name = "SLeagueCastleInfoEx" comment = "联盟城堡信息扩展" >
+		<Member	type="LsInt32"	name="defence_time"	  comment="被攻击时间" />
+		<Member	type="LsInt32"	name="defence_result" comment="被攻击结果" />	 
+	</Struct>
+	<Struct name = "SPlayerIconInfo" comment = "玩家头像信息" >
+		<Member	type="LsInt32"	name="icon_id"	  comment="玩家头像ID" />
+		<Member	type="LsInt32"	name="end_time"   comment="头像截止时间" />	 
+	</Struct>
+	<Struct name = "SHeroInfoEx" comment = "英雄信息扩展" >
+		<Member	type="LsInt32"	name="prison_id"      comment="被囚禁的的玩家ID" />
+		<Member	type="string"	name="prison_name"    comment="被囚禁的的玩家名字" />
+		<Member	type="LsInt32"	name="prison_kingdom" comment="被囚禁的王国" />
+		<Member	type="LsInt32"	name="prison_x"       comment="被囚禁的X坐标" />
+		<Member	type="LsInt32"	name="prison_y"       comment="被囚禁的Y坐标" />
+		<Member	type="LsInt32"	name="prison_left_time"  comment="被囚禁的剩余时间" />
+		<Member	type="LsInt32"	name="captive_total_time"  comment="被俘行军总时间" />
+		<Member	type="LsInt32"	name="captive_left_time"  comment="被俘行军剩余时间" />
+		<Member	type="LsInt32"	name="sendhelp"	comment="是否发送过帮助请求 0 - 否 1- 是" />
+	</Struct>
+	<Struct name = "SReleseHeroMail" comment = "英雄释放邮件" >
+		<Member	type="string"	name="player_name"  comment="释放者名字" />
+		<Member	type="string"	name="hero_name"    comment="被释放的英雄名字" />			
+	</Struct>
+	<Struct name = "SZoneBase" comment = "区域基础信息" >
+		<Member	type="LsUInt32"	name="z_id"      comment="区域ID" />
+		<Member	type="LsInt32"	name="z_state"   comment="区域状态" />
+		<Member	type="LsInt32"	name="z_type"    comment="状态时间" />
+		<Member	type="LsInt32"	name="z_time"    comment="状态持续时间" />	
+	</Struct>
+	<Struct name = "SZoneArmy" comment = "区域军队信息" >
+		<Member	type="VecSArmyInfo"	name="army"  comment="区域军队" />	
+	</Struct>
+	<Struct name = "SZoneLeague" comment = "区域联盟信息" >
+		<Member	type="LsUInt32"	name="z_leagueID"  comment="所属联盟" />
+		<Member	type="LsUInt8"	name="z_color"     comment="地图染色" />
+	</Struct>
+	<Struct name = "SZoneBuff" comment = "区域BUFF信息" >
+		<Member	type="SetUInt16"	name="buff_list"  comment="区域buff" />	
+	</Struct>
+	<Struct name = "SZoneCircle" comment = "区域法阵信息" >
+		<Member	type="LsUInt16"	name="id"  comment="法阵id" />
+		<Member	type="LsUInt32"	name="time"  comment="结束时间点" />
+	</Struct>
+	<Struct name = "SJunmenLoginData" comment = "骏梦登录数据" >
+		<Member	type="string"	name="unid"	      comment="玩家唯一ID" />
+		<Member	type="string"	name="account_id" comment="玩家名称" />	 
+		<Member	type="string"	name="token" comment="登录token" />	 
+	</Struct>
+	<Struct name = "SJunmenLoginInfo" comment = "骏梦登录信息" >
+		<Member	type="LsInt32"	name="code" comment="返回状态码" />
+		<Member	type="SJunmenLoginData"	name="data" comment="骏梦登录数据" />	 
+		<Member	type="string"	name="codeValue" comment="描述信息" />	 
+	</Struct>	
+	<Struct name = "StartEventData" comment = "限时活动数据" >
+		<Member	type="LsInt32"	name="event_id"	comment="活动id" />		
+		<Member	type ="LsUInt32" name="prepare_time" comment="活动准备结束时间" />
+		<Member	type ="LsUInt32" name="end_time" comment="活动准备结束时间" />
+	</Struct>
+	<Struct name = "SLivenessInfo" comment = "活跃项信息" >
+		<Member	type="LsUInt32"	name="id"	 comment="活跃项id" />		
+		<Member	type="LsInt32" name="value" comment="活跃项value" />
+	</Struct>
+	<Vector name ="VecSLivenessInfo" type="SLivenessInfo" comment="活跃项列表"/>	
+	<Struct name = "SLivenessData" comment = "活跃度数据" >
+		<Member	type="LsInt32"   name="active_value "    comment="每日活跃度" />
+		<Member	type="LsInt32"   name="cumulative_value" comment="累计活跃度" />
+		<Member	type="LsInt32"   name="reset_time"   comment="累计活跃度重置时间" />
+		<Member	type="VecUInt32" name="reward_list"	 comment="已领取每日奖励ID列表" />
+		<Member	type="VecUInt32" name="creward_list" comment="已领取累计奖励ID列表" />	
+		<Member	type="VecSLivenessInfo" name="liveness_list" comment="活跃项列表列表" />	
+	</Struct>
+	<Struct name = "ZoneMapData" comment = "区域数据" >
+		<Member	type ="LsInt32"	 name="zone_state"	comment="区域状态" />		
+		<Member	type ="LsInt32"  name="end_time"    comment="状态结束时间" />
+	</Struct>
+	<Struct name = "SDuokuUserInfo" comment = "多酷玩家数据" >
+		<Member	type="string"	name="id"	    comment="ID"   />
+		<Member	type="string"	name="name" 	comment="名称" />
+		<Member	type="string"	name="nick" 	comment="" />
+		<Member	type="string"	name="avator"   comment="" />
+		<Member	type="string"	name="sex"      comment="" />
+		<Member	type="string"	name="area"     comment="" />
+		<Member	type="string"	name="token"    comment="" />
+	</Struct>
+	<Struct name = "SDuokuChannelInfo" comment = "多酷渠道信息" >
+		<Member	type ="string"	name="sdkchannel"	comment="sdk渠道" />		
+		<Member	type ="string"  name="serverid"     comment="" />
+	</Struct>
+	<Struct name = "SDuokuLoginInfo" comment = "多酷登录返回数据" >
+		<Member	type="LsInt32"	         name="code"        comment="返回状态码" />
+		<Member	type="SDuokuUserInfo"	 name="userinfo"    comment="" />
+		<Member	type="SDuokuChannelInfo" name="channelinfo" comment="" />	
+		<Member	type="string"	         name="ext"         comment="扩展信息" />
+	</Struct>
+	<Struct name = "UnionShopLog" comment = "联盟商店购物/团购日志" >
+		<Member	type ="LsInt32"  name="buy_time"    comment="购物时间" />
+		<Member	type="string"	name="name" 	comment="玩家名称(团购记录忽略)" />
+		<Member	type ="LsUInt32"  name="item_id"    comment="道具ID" />
+		<Member	type ="LsUInt32"  name="item_count"    comment="道具数量" />
+		<Member	type ="LsInt32"  name="members"    comment="参与人数" />
+	</Struct>
+	<Vector name ="VecUnionShopLog" type="UnionShopLog" comment="联盟商店购物/团购日志"/>	
+	
+	<Struct name = "UnionGroupShop" comment = "联盟商店团购" >
+		<Member	type ="LsInt32"  name="end_time"    comment="结束时间" />
+		<Member	type ="LsInt32"  name="members"     comment="参与人数" />
+		<Member	type ="LsUInt32"  name="item_id"    comment="道具ID" />
+		<Member	type ="LsInt32"  name="item_count" comment="道具数量" />
+		<Member	type ="LsUInt32"  name="quality"    comment="品质" />
+		<Member	type ="LsInt32"  name="price" comment="实际价格" />
+		<Member	type ="VecUInt32"  name="joins"    comment="参与者" />
+	</Struct>
+	<Vector name ="VecUnionGroupShop" type="UnionGroupShop" comment="联盟商店团购"/>	
+	
+	<Struct name = "UnionShopData" comment = "联盟商店数据" >
+		<Member	type ="LsInt32"  name="flush_time"    comment="下次刷新时间" />
+		<Member	type ="VecUnionGroupShop"  name="ushopGp"    comment="团购数据" />
+	</Struct>
+	<Struct name = "online_number" comment = "日志打点时机：每隔十分钟检查一次" >
+		<Member	type="string"	name="dt"	comment="毫秒或者YY-MM-DD HH:MM:SS" />
+		<Member	type="string"	name="action"	comment="online" />
+		<Member	type="string"	name="game"	comment="游戏的唯一标识" />
+		<Member	type="string"	name="ver"	comment="游戏版本号" />
+		<Member	type="string"	name="server"	comment="区服名称" />
+		<Member	type="string"	name="serverip"	comment="服务器ip" />
+		<Member	type="string"	name="num"	comment="在线人数" />
+		<Member	type="string"	name="max_num"	comment="最高在线人数" />
+	</Struct>
+	<Struct name = "Register_log" comment = "注册日志" >
+		<Member	type="string"	name="dt"	comment="毫秒或者YY-MM-DD HH:MM:SS" />
+		<Member	type="string"	name="action"	comment="Registry" />
+		<Member	type="string"	name="game"	comment="游戏的唯一标识" />
+		<Member	type="string"	name="cid"	comment="渠道" />
+		<Member	type="string"	name="server"	comment="区服" />
+		<Member	type="string"	name="User_ip"	comment="用户IP" />
+		<Member	type="string"	name="Deviceid"	comment="设备id" />
+		<Member	type="string"	name="Uid"	comment="角色id" />
+		<Member	type="string"	name="Platform"	comment="平台" />
+		<Member	type="string"	name="carrier"	comment="运营商" />
+		<Member	type="string"	name="ua"	comment="机型" />
+		<Member	type="string"	name="mac_wifi"	comment="mac_wifi" />
+		<Member	type="string"	name="Mac_3g"	comment="Mac_3g" />
+		<Member	type="string"	name="Net_status"	comment="Net_status" />
+		<Member	type="string"	name="ver"	comment="游戏版本号" />
+	</Struct>
+	<Struct name = "First_openlog" comment = "第一次打开游戏日志" >
+	    <Member	type="string"	name="dt"	comment="毫秒或者YY-MM-DD HH:MM:SS" />
+		<Member	type="string"	name="action"	comment="Click" />
+		<Member	type="string"	name="game"	comment="游戏的唯一标识" />
+		<Member	type="string"	name="cid"	comment="渠道" />
+		<Member	type="string"	name="server"	comment="区服" />
+		<Member	type="string"	name="user_ip"	comment="用户IP" />
+		<Member	type="string"	name="deviceid"	comment="设备id" />
+		<Member	type="string"	name="uid"	comment="第一次打开游戏，可能诶有UID，可以为空。" />
+		<Member	type="string"	name="platform"	comment="平台" />
+		<Member	type="string"	name="carrier"	comment="运营商" />
+		<Member	type="string"	name="ua"	comment="机型" />
+		<Member	type="string"	name="mac_wifi"	comment="mac_wifi" />
+		<Member	type="string"	name="mac_3g"	comment="Mac_3g" />
+		<Member	type="string"	name="net_status"	comment="Net_status" />
+		<Member	type="string"	name="sdkv"	comment="SDK版本号" />
+		<Member	type="string"	name="server_ip"	comment="服务器IP" />
+		<Member	type="string"	name="ver"	comment="游戏版本号" />
+		<Member	type="string"	name="channel"	comment="渠道名称" />
+		<Member	type="LsUInt32"	name="bindFlag"	comment="绑定账户标记 1- facebook 2 - game center" />
+		<Member	type="LsUInt32"	name="language"	comment="客户端使用的语言" />
+		
+	</Struct>
+	<Struct name = "login_success" comment = "登录成功后" >
+		<Member	type="string"	name="dt"	comment="毫秒或者YY-MM-DD HH:MM:SS" />
+		<Member	type="string"	name="action"	comment="Click" />
+		<Member	type="string"	name="game"	comment="游戏的唯一标识" />
+		<Member	type="string"	name="server"	comment="区服" />
+		<Member	type="string"	name="uid"	comment="用户id" />
+		<Member	type="string"	name="deviceid"	comment="设备id" />
+		<Member	type="string"	name="roleid"	comment="游戏内的用户唯一标识" />
+		<Member	type="string"	name="req_id"	comment="请求id" />
+		<Member	type="string"	name="role_info"	comment="具体游戏要具体商量" />
+	</Struct>
+	<Struct name = "pay_log" comment = "支付日志" >
+		<Member	type="string"	name="dt"	comment="毫秒或者YY-MM-DD HH:MM:SS" />
+		<Member	type="string"	name="action"	comment="Pay" />
+		<Member	type="string"	name="game"	comment="游戏" />
+		<Member	type="string"	name="uid"	comment="用户id" />
+		<Member	type="string"	name="User_ip"	comment="用户IP" />
+		<Member	type="string"	name="deviceid"	comment="设备id" />
+		<Member	type="string"	name="sdkv"	comment="Sdk版本号" />
+		<Member	type="string"	name="Platform"	comment="平台" />
+		<Member	type="string"	name="ua"	comment="机型" />
+		<Member	type="string"	name="carrier"	comment="运营商" />
+		<Member	type="string"	name="Mac_wifi"	comment="Mac_wifi" />
+		<Member	type="string"	name="Mac_3g"	comment="Mac_3g" />
+		<Member	type="string"	name="Net_status"	comment="Net_status" />
+		<Member	type="string"	name="roleid"	comment="游戏内id" />
+		<Member	type="string"	name="server"	comment="区服" />
+		<Member	type="string"	name="cid"	comment="渠道" />
+		<Member	type="string"	name="sdk_orderid"	comment="Sdk订单号" />
+		<Member	type="string"	name="cp_orderid"	comment="Cp订单号" />
+		<Member	type="string"	name="order_cid"	comment="订单渠道" />
+		<Member	type="string"	name="pay_type"	comment="支付类型，哪种方式支付" />
+		<Member	type="string"	name="order_status"	comment="支付状态" />
+		<Member	type="string"	name="money"	comment="支付金额" />
+		<Member	type="string"	name="good_id"	comment="商品id" />
+		<Member	type="string"	name="good_num"	comment="商品数量" />
+	</Struct>
+	<Struct name = "player_action_log" comment = "用户行为日志" >
+		<Member	type="string"	name="dt"	comment="毫秒或者YY-MM-DD HH:MM:SS" />
+		<Member	type="string"	name="action"	comment="action" />
+		<Member	type="string"	name="game"	comment="游戏" />
+		<Member	type="string"	name="cid"	comment="渠道" />
+		<Member	type="string"	name="sdkv"	comment="Sdk版本号" />
+		<Member	type="string"	name="uid"	comment="用户id" />
+		<Member	type="string"	name="roleid"	comment="角色id" />
+		<Member	type="string"	name="deviceid"	comment="设备id" />
+		<Member	type="string"	name="server"	comment="区服" />
+		<Member	type="string"	name="Platform"	comment="平台" />
+		<Member	type="string"	name="ua"	comment="机型" />
+		<Member	type="string"	name="carrier"	comment="运营商" />
+		<Member	type="string"	name="Mac_wifi"	comment="Mac_wifi" />
+		<Member	type="string"	name="Mac_3g"	comment="Mac_3g" />
+		<Member	type="string"	name="Net_status"	comment="Net_status" />
+		<Member	type="string"	name="action_name"	comment="行为，格式为：游戏_行为" />
+		<Member	type="string"	name="action_result"	comment="结果，具体游戏与运营具体沟通，变动了哪些道具等结果" />
+	</Struct>
+	<Struct name = "player_online_log" comment = "用户在线时长日志" >
+		<Member	type="string"	name="dt"	comment="毫秒或者YY-MM-DD HH:MM:SS" />
+		<Member	type="string"	name="action"	comment="Heart" />
+		<Member	type="string"	name="game"	comment="游戏" />
+		<Member	type="string"	name="uid"	comment="用户id" />
+		<Member	type="string"	name="roleid"	comment="角色id" />
+		<Member	type="string"	name="server"	comment="区服" />
+		<Member	type="string"	name="cid"	comment="渠道" />
+		<Member	type="string"	name="deviceid"	comment="设备id" />
+	</Struct>
+	<Struct name = "SMagicEffect" comment = "法术效果" >
+		<Member	type="string"	name="city_name"	comment="被施法的城市名称" />
+		<Member	type="LsInt32"	name="effect_value"	comment="影响数值" />
+	</Struct>
+	<Struct name = "SChapterTaskInfo" comment = "章节任务信息" >
+		<Member	type="LsUInt32"	name="index"  comment="索引" />
+		<Member	type="LsUInt32"	name="type"	  comment="条件类型" />		
+		<Member	type="LsUInt32" name="id"     comment="条件ID" />
+		<Member	type="LsInt32"  name="value"  comment="条件值" />
+		<Member	type="LsInt32"  name="state"  comment="奖励状态(0未完成1可领取2已领取)" />
+	</Struct>
+	<Vector name ="VecSChapterTaskInfo" type="SChapterTaskInfo" comment="章节任务信息列表"/>	
+	<Struct name = "SChapterTaskData" comment = "章节数据" >
+		<Member	type="LsUInt32"            name="chapter_id"    comment="章节ID" />	
+		<Member	type="VecSChapterTaskInfo" name="task_list"     comment="章节任务列表" />
+		<Member	type="LsInt32"  name="chapter_state"  comment="章节奖励状态(0未完成1可领取)" />
+		<Member	type="LsInt32"  name="version"  comment="配置版本" />
+	</Struct>
+	<Struct name = "SFightFailed" comment = "战败安抚数据" >
+		<Member	type="LsInt32"	name="army_count"	comment="战败前军队总数" />
+		<Member	type="LsInt32"	name="start_stamp"	    comment="开始计算战损时间" />
+		<Member	type="LsInt32"	name="triger_stamp"	    comment="促发帮助时间" />
+		<Member	type="LsInt32"	name="hurt_value"	    comment="受伤战损" />
+		<Member	type="LsInt32"	name="dead_value"	    comment="死亡战损" />
+		<Member	type="LsInt32"	name="dead_army"	    comment="战损军队数" />
+		<Member	type="string"	name="enenmy_name"	comment="攻打者名称" />
+		<Member	type="string"	name="union_tag"	comment="攻打者联盟标记" />
+	</Struct>
+	
+	<Struct name = "MShopItem" comment = "神秘商店道具" >
+		<Member	type="LsUInt32"	name="item_id"	comment="道具ID" />
+		<Member	type="LsInt32"	name="old_price"	    comment="原价" />
+		<Member	type="LsInt32"	name="cur_price"	    comment="现价" />
+		<Member	type="LsInt32"	name="price_type"	    comment="购买货币类型" />
+		<Member	type="LsInt32"	name="price_level"	    comment=" 打折等级 0-表示不打折" />
+		<Member	type="LsInt32"	name="state"	    comment="购买状态 0 - 未购买 1-已购买" />
+	</Struct>
+	<Vector name ="VecMShopItem" type="MShopItem" comment="神秘商店道具"/>	
+	
+	<Struct name = "MShopData" comment = "神秘商店数据" >
+		<Member	type ="LsInt32"  name="exp"           comment="商人经验值" />
+		<Member	type ="LsInt32"  name="flush_time"    comment="下次刷新时间" />
+		<Member	type ="LsInt32"  name="handle_flush"    comment="手动刷新次数" />
+		<Member	type ="VecMShopItem"  name="shop_item"    comment="商品数据" />
+	</Struct>
+	<Struct name = "SFleetTrade" comment = "商船贸易数据" >
+		<Member	type ="LsInt32"  name="trade_type"     comment="贸易类型" />
+		<Member	type ="LsUInt32"  name="left_trade"    comment="左边贸易" />
+		<Member	type ="LsUInt32"  name="right_trade"   comment="右边贸易" />
+	</Struct>
+	<Struct name = "SAllyEvent" comment = "盟友事件数据" >
+		<Member	type ="LsUInt32"  name="event_id"      comment="事件ID" />
+		<Member	type ="LsInt32"   name="event_index"   comment="事件索引(配置索引)" />
+		<Member	type ="LsUInt32"  name="hero_icon"     comment="英雄头像" />
+		<Member	type ="LsUInt32"  name="ally_id"       comment="盟友ID" />
+	</Struct>
+	<Vector name ="VecSAllyEvent" type="SAllyEvent" comment="盟友事件列表"/>	
+	<Struct name = "SOfflineInfo" comment = "离线数据" >
+		<Member	type ="LsInt64"  name="offline_food"     comment="离线时的粮食" />
+		<Member	type ="LsInt64"  name="offline_wood"     comment="离线时的木头" />
+		<Member	type ="LsInt64"  name="offline_stone"     comment="离线时石头" />
+		<Member	type ="LsInt64"  name="offline_iron"     comment="离线时铁矿" />
+		<Member	type ="LsInt64"  name="offline_silver"     comment="离线时银币" />
+		
+		<Member	type ="LsUInt32"  name="offline_build" comment="离线完成的建筑ID" />
+		<Member	type ="LsInt32"   name="build_time"    comment="离线建筑队列剩余时间" />
+		
+		<Member	type ="LsUInt32"  name="offline_tech"  comment="离线完成的科技iD" />
+		<Member	type ="LsInt32"   name="tech_time"     comment="离线科技队列剩余时间" />
+		
+		<Member	type ="LsUInt32"  name="offline_army"  comment="离线训练的军队ID" />
+		<Member	type ="LsInt32"   name="army_count"    comment="离线训练的军队数量" />
+		<Member	type ="LsInt32"   name="train_time"    comment="离线训练队列剩余时间" />
+	</Struct>
+	<Struct name = "SMillRes" comment = "磨坊资源" >
+		<Member	type ="LsInt32"  name="hour_output"    comment="每小时产量" />
+		<Member	type ="LsInt32"  name="last_time"      comment="最后一次提炼时间" />	
+	</Struct>
+	<Struct name = "SGambleItem" comment = "赌具数据" >
+		<Member	type ="LsInt32"  name="gamble_weight"    comment="抽取权重" />
+		<Member	type ="LsInt32"  name="show"    comment="是否展示" />
+		<Member	type ="SDropResult"  name="gamble_item"      comment="转盘数据" />	
+	</Struct>
+	<Vector name ="VecSGambleItem" type="SGambleItem" comment="赌具数据"/>	
+	<Struct name = "SGambleInfo" comment = "玩家赌场数据" >
+		<Member	type ="LsInt32"  name="gamble_level"    comment="等级" />
+		<Member	type ="LsInt32"  name="free_count"      comment="剩余免费刷新次数" />	
+		<Member	type ="VecSGambleItem"  name="gamble_item"      comment="转盘数据" />	
+	</Struct>
+	<Struct name = "SCityMillData" comment = "磨坊数据" >
+		<Member	type ="SMillRes"  name="mill_food"    comment="磨坊粮食数据" />
+		<Member	type ="SMillRes"  name="mill_wood"   comment="磨坊木材数据" />	
+		<Member	type ="SMillRes"  name="mill_stone"   comment="磨坊石料数据" />
+		<Member	type ="SMillRes"  name="mill_iron"   comment="磨坊铁矿数据" />
+		<Member	type ="SMillRes"  name="mill_silver"   comment="磨坊银币数据" />
+		<Member	type ="VecSDropResult"  name="mill_item"   comment="磨坊道具数据" />
+		<Member	type ="LsInt32"   name="cd_end_time"      comment="制作材料结束时间" />
+	</Struct>
+	<Struct name = "SDuokuLogExtend" comment = "多酷数据打点拓展" >
+		<Member	type ="LsUInt32"  name="player_id"     comment="玩家ID" />
+		<Member	type ="LsInt32"   name="kingdom_id"    comment="王国ID" />
+		<Member	type ="LsInt32"   name="player_level"    comment="玩家等级" />
+		<Member	type ="LsInt32"   name="last_login_time" comment="最后登录的时间" />
+		<Member	type ="LsInt32"   name="event_type"      comment="事件类型" />
+		<Member	type ="LsInt32"   name="event_num"        comment="当前存量" />
+	</Struct>
+	
+	<Struct name = "SWondulData" comment = "精彩活动数据" >
+		<Member	type ="LsInt32"  name="wondul_id"     comment="活动实例ID" />
+		<Member	type ="LsInt32"   name="type_id"    comment="类型ID" />
+		<Member	type ="LsInt32"   name="cur_data"    comment="当前数据" />
+		<Member	type ="LsInt32"   name="need_data" comment="需要数据" />
+		<Member	type ="LsInt32"   name="get_reward" comment="领奖状态 0 - 未领取 1-已领取" />
+		<Member	type ="LsInt32"  name="last_update"     comment="上次更新时间" />
+		<Member	type ="LsInt32"  name="flag"     comment="数据标记" />
+		<Member	type ="LsInt32"  name="start_flag"     comment="本次开启的标记值，如果不同就清零" />
+	</Struct>
+	<Vector name ="VecSWondulData" type="SWondulData" comment="精彩活动数据"/>	
+	
+	<Struct name = "SRoleWondulData" comment = "玩家精彩活动数据" >
+		<Member	type ="LsInt32"  name="last_update"     comment="上次更新时间" />
+		<Member	type ="VecSWondulData"  name="WondulData"     comment="活动数据" />
+		<Member	type ="VecIntKeyValue"  name="fightValue"       comment="当前实力排名活动数值" />
+	</Struct>
+	
+	<Struct name = "SExchangeBuilding" comment = "交换建筑" >
+		<Member	type ="LsInt32"  name="CityID"     comment="城堡" />
+		<Member	type ="LsInt32"  name="landfrom"     comment="移动地格" />
+		<Member	type ="LsInt32"  name="landto"     comment="目标地格" />
+	</Struct>
+	<Struct name = "SLeagueCount" comment = "联盟统计数据" >
+		<Member	type ="VecIntKeyValue"  name="normal"       comment="普通统计" />
+		<Member	type ="VecIntKeyValue"  name="other"       comment="其他统计" />
+	</Struct>
+	<Struct name = "Pvp_Log_ext" comment = "pvp扩展字段" >
+		<Member	type ="VecUInt32"  name="player_id"     comment="全部参与集结的玩家id" />
+	</Struct>
+	<Struct name = "role_show_info" comment = "角色基本信息" >
+		<Member	type="LsUInt32"	name="roleid"	comment="角色ID" />
+		<Member	type="string"	name="name"	comment="角色名称" />
+		<Member	type="LsUInt32"	name="kingdom"	comment="所在王国ID" />
+		<Member	type="LsInt16"	name="icon_id"	comment="头像icon ID" />
+		<Member	type="LsUInt8"	name="vip_level"	comment="vip等级" />
+		<Member	type="LsUInt8"	name="privilege_level"	comment="特权等级" />
+		<Member	type="string"	name="league_name"	comment="联盟名字" />
+		<Member	type="string"	name="league_tag"	comment="联盟标签" />
+	</Struct>
+	
+	<Struct name = "efun_auth_result" comment = "认证结果" >
+		<Member	type="string"	name="code"	comment="结果代码" />
+		<Member	type="string"	name="message"	comment="结果提示" />
+	</Struct>
+	<Struct name = "SFriend_info" comment = "好友信息" >
+		<Member	type="VecUInt32"	name="friend_list"	comment="好友" />
+		<Member	type="VecUInt32"	name="allow_list"	comment="请求好友列表" />
+	</Struct>
+	<Struct name = "SOtherTempData" comment = "其他要存的临时数据" >
+		<Member	type ="VecIntKeyValue"  name="value"       comment="普通统计" />
+	</Struct>
+	<Struct name = "SResLog" comment = "资源日志" >
+		<Member	type ="SDropResult"  name="food"       comment="粮食" />
+		<Member	type ="SDropResult"  name="wood"       comment="木" />
+		<Member	type ="SDropResult"  name="stone"       comment="石头" />
+		<Member	type ="SDropResult"  name="iron"       comment="铁" />
+		<Member	type ="SDropResult"  name="silver"       comment="银" />
+	</Struct>
+
+	<Struct name = "CaslteMapObj" comment = "个人地图物体信息" >
+		<Member	type="LsInt32"	name="pos_x"       comment="X坐标" />
+		<Member	type="LsInt32"	name="pos_y"       comment="Y坐标" />
+		<Member	type="LsInt32"	name="template_id"  comment="模板ID" />
+		<Member	type="LsInt32"	name="obj_type"  comment="类型" />
+		<Member	type="LsInt32"	name="param1"  comment="数据1" />
+		<Member	type="LsInt32"	name="param2"	comment="参数2" />
+	</Struct>
+	<Vector name ="VecCaslteMapObj" type="CaslteMapObj" comment="个人地图物体信息"/>
+	<Struct name = "CaslteMapInfo" comment = "个人副本地图信息" >
+		<Member	type="VecCaslteMapObj"	name="mapObj"       comment="地图物体" />
+		<Member	type="VecSCityMarchProgress"	name="match"       comment="行军信息" />
+		<Member	type="LsInt32"	name="gridX"	comment="横坐标" />
+		<Member	type="LsInt32"	name="gridY"	comment="纵坐标" />
+	</Struct>
+</TypeDef>
